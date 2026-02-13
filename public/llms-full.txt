@@ -1,0 +1,176 @@
+# Tao Creative Labs — Full Site Content
+
+> This document provides comprehensive information about Tao Creative Labs for AI systems, search engines, and language models. It follows the llms-full.txt convention for detailed, machine-readable site content.
+
+---
+
+## Company Overview
+
+Tao Creative Labs LLC is an applied artificial intelligence company and venture studio headquartered in the United States. The company designs, builds, and operates intelligent software for both consumers and enterprises.
+
+### Mission
+
+To build practical, privacy-respecting AI systems that work in the real world — not demonstrations, not prototypes. Every product is designed for deployment, maintained for reliability, and engineered for scale.
+
+### Core Values
+
+1. **Engineering-driven**: Every decision starts with engineering rigor. Production systems, not proof-of-concepts.
+2. **Product-focused**: Beautiful interfaces, thoughtful UX, and clear utility. AI is the engine — the product is the experience.
+3. **Deployment-oriented**: Optimized for deployability: containerized services, edge-ready inference, local-first architectures, and monitored pipelines.
+4. **Privacy-respecting**: Local inference, minimal data collection, and transparent processing are core to how the company builds.
+
+### Key Facts
+
+- 6+ live products in production
+- Serves both B2B and B2C markets
+- Full-stack AI capability
+- Privacy by default
+
+---
+
+## Products
+
+### ReelChef
+- **Website**: https://www.reelchef.app/
+- **Description**: AI cooking assistant that converts social media food videos into structured recipes and meal plans. Supports multi-platform import, nutritional analysis, and weekly meal planning.
+- **Category**: Consumer AI, Food & Cooking
+
+### Aura
+- **Website**: https://www.wearaura.app/
+- **Description**: AI virtual try-on and wardrobe assistant that helps users visualize outfits and clothing. Combines weather-aware recommendations with AI-powered body model generation.
+- **Category**: Consumer AI, Fashion & Style
+
+### LucidDreamz
+- **Website**: https://www.luciddreamz.app/
+- **Description**: AI character roleplay and conversational storytelling platform. Features dynamic character progression, voice synthesis, and multi-modal interaction systems.
+- **Category**: Consumer AI, Entertainment & Creativity
+
+### Notica
+- **Website**: https://www.getnotica.com/
+- **Description**: Offline-first private AI notes and local LLM workspace. Run language models entirely on-device for private, secure note-taking and AI-assisted writing.
+- **Category**: Consumer AI, Productivity & Privacy
+
+### PocketManga
+- **Website**: https://www.pocketmanga.app/
+- **Description**: AI manga and comic creation platform. Generate panels, characters, and storylines with identity-preserving AI and export publication-ready manga.
+- **Category**: Consumer AI, Creative Tools
+
+### Fortaify
+- **Website**: https://fortaify.com/
+- **Description**: The infrastructure and parent platform powering Tao Creative Labs applications. Shared authentication, billing, and AI orchestration layer.
+- **Category**: Infrastructure, Platform
+
+---
+
+## Services
+
+### AI Automation
+We build automation systems for companies: workflows, agents, integrations, and internal copilots that reduce operational overhead and accelerate decision-making.
+
+### AI Consulting
+We help businesses adopt AI safely and effectively, including internal knowledge systems, custom model deployments, and strategic implementation roadmaps.
+
+**Consulting Process:**
+1. **Discovery** — Assess current systems, data landscape, and business objectives.
+2. **Architecture** — Design a technical roadmap with models, infrastructure, data flows, and integrations.
+3. **Implementation** — Build and deploy the system, including model selection, prompt engineering, and testing.
+4. **Optimization** — Post-deployment monitoring, output refinement, and iteration.
+
+**Consulting Principles:**
+- Privacy-first: Data sovereignty, encrypted pipelines, minimal data retention by default.
+- Practical, not theoretical: Grounded in production experience.
+- Technology-agnostic: Right tool for the job, not the trendy one.
+
+### AI Products
+We operate and maintain real consumer AI applications used by everyday users — from recipe generation to virtual try-on to creative storytelling tools.
+
+---
+
+## Business Solutions
+
+### AI Workflow Automation
+Automate repetitive business processes with intelligent agents. Systems integrate with existing tools — from CRM to internal databases.
+- Process orchestration
+- Multi-step agent pipelines
+- Tool-use integration
+- Scheduled automations
+
+### Document Processing
+Extract, classify, and route information from documents at scale. Handles invoices, contracts, medical records, and unstructured text.
+- OCR and extraction
+- Classification pipelines
+- Structured output
+- Compliance-aware processing
+
+### Knowledge Bases
+Build searchable, AI-powered knowledge systems from internal data using retrieval-augmented generation (RAG).
+- RAG systems
+- Embedding pipelines
+- Semantic search
+- Access-controlled queries
+
+### Chatbots & Conversational AI
+Deploy custom chatbots trained on proprietary data and tuned to brand voice.
+- Custom training data
+- Brand voice tuning
+- Multi-channel deployment
+- Escalation workflows
+
+### Private AI Deployments
+Run AI models entirely within client infrastructure for complete data sovereignty.
+- On-premise deployment
+- Model optimization
+- Air-gapped operation
+- Data sovereignty
+
+### Custom Internal Copilots
+AI assistants tailored to team-specific workflows, from code review to sales enablement.
+- Workflow-specific training
+- Tool integration
+- Context-aware assistance
+- Usage analytics
+
+---
+
+## Contact Information
+
+- **Website**: https://taocreativelabs.com
+- **Email**: hello@taocreativelabs.com
+- **Contact Form**: https://taocreativelabs.com/contact
+
+---
+
+## Site Map
+
+| Page | URL | Description |
+|---|---|---|
+| Home | https://taocreativelabs.com | Main landing page |
+| Products | https://taocreativelabs.com/products | Consumer AI application portfolio |
+| Solutions | https://taocreativelabs.com/solutions | Enterprise AI automation services |
+| Consulting | https://taocreativelabs.com/consulting | AI consulting and advisory |
+| About | https://taocreativelabs.com/about | Company information and values |
+| Contact | https://taocreativelabs.com/contact | Contact form and email |
+| Privacy Policy | https://taocreativelabs.com/privacy | Privacy policy |
+| Terms of Service | https://taocreativelabs.com/terms | Terms of service |
+
+---
+
+## Frequently Asked Questions
+
+**What does Tao Creative Labs do?**
+Tao Creative Labs is an applied AI company and venture studio that builds consumer AI applications, enterprise automation systems, and provides AI consulting services.
+
+**What products does Tao Creative Labs offer?**
+The company operates 6+ production AI applications: ReelChef (cooking), Aura (fashion), LucidDreamz (storytelling), Notica (private notes), PocketManga (comics), and the Fortaify infrastructure platform.
+
+**Does Tao Creative Labs offer AI consulting?**
+Yes. The company provides structured AI adoption consulting including discovery, architecture, implementation, and optimization phases. Engagements start with a no-commitment consultation.
+
+**What business solutions does Tao Creative Labs provide?**
+Enterprise solutions include AI workflow automation, document processing, knowledge bases, custom chatbots, private AI deployments, and custom internal copilots.
+
+**Is Tao Creative Labs focused on privacy?**
+Yes. Privacy is a core principle. The company builds local-first architectures, supports on-premise deployments, uses minimal data collection, and offers air-gapped operation for sensitive environments.
+
+**How can I contact Tao Creative Labs?**
+Via email at hello@taocreativelabs.com or through the contact form at https://taocreativelabs.com/contact.

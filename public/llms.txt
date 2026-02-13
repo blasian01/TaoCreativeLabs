@@ -1,0 +1,48 @@
+# Tao Creative Labs
+
+> Tao Creative Labs is an applied artificial intelligence company and venture studio. We build consumer AI applications, automation systems, and provide AI consulting for businesses.
+
+## About
+
+Tao Creative Labs LLC is an AI venture studio focused on practical, applied artificial intelligence. We design, build, and operate intelligent software — from consumer applications to enterprise automation systems. Founded on the principle that AI should be practical, private, and accessible.
+
+## Contact
+
+- Website: https://taocreativelabs.com
+- Email: hello@taocreativelabs.com
+- Contact form: https://taocreativelabs.com/contact
+
+## Products
+
+- [ReelChef](https://www.reelchef.app/): AI cooking assistant that converts social media food videos into structured recipes and meal plans.
+- [Aura](https://www.wearaura.app/): AI virtual try-on and wardrobe assistant that helps users visualize outfits and clothing.
+- [LucidDreamz](https://www.luciddreamz.app/): AI character roleplay and conversational storytelling platform.
+- [Notica](https://www.getnotica.com/): Offline-first private AI notes and local LLM workspace.
+- [PocketManga](https://www.pocketmanga.app/): AI manga and comic creation platform.
+- [Fortaify](https://fortaify.com/): The infrastructure and parent platform powering Tao Creative Labs applications.
+
+## Services
+
+- AI Automation: Workflow automation, agents, integrations, and internal copilots.
+- AI Consulting: Strategy, implementation roadmaps, and custom model deployments.
+- AI Products: Consumer AI applications designed and operated for everyday users.
+
+## Business Solutions
+
+- AI workflow automation
+- Document processing and extraction
+- Enterprise knowledge bases
+- Custom chatbots and conversational AI
+- Local private AI deployments
+- Custom internal copilots
+
+## Pages
+
+- Home: https://taocreativelabs.com
+- Products: https://taocreativelabs.com/products
+- Solutions: https://taocreativelabs.com/solutions
+- Consulting: https://taocreativelabs.com/consulting
+- About: https://taocreativelabs.com/about
+- Contact: https://taocreativelabs.com/contact
+- Privacy Policy: https://taocreativelabs.com/privacy
+- Terms of Service: https://taocreativelabs.com/terms

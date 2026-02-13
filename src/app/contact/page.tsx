@@ -31,10 +31,10 @@ export default function ContactPage() {
                         <p className="text-[13px] font-light text-ink-muted">
                             You can also reach us directly at{" "}
                             <a
-                                href="mailto:hello@fortaify.com"
+                                href="mailto:hello@taocreativelabs.com"
                                 className="text-ink underline underline-offset-4 transition-colors hover:text-ink-light"
                             >
-                                hello@fortaify.com
+                                hello@taocreativelabs.com
                             </a>
                         </p>
                     </div>

@@ -85,7 +85,7 @@ export default async function Image() {
                         letterSpacing: "0.1em",
                     }}
                 >
-                    fortaify.com
+                    taocreativelabs.com
                 </div>
             </div>
         ),
