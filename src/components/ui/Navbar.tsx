@@ -30,8 +30,8 @@ export function Navbar() {
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
                 className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
-                        ? "glass-nav shadow-[0_1px_3px_rgba(0,0,0,0.04)]"
-                        : "bg-transparent"
+                    ? "glass-nav shadow-[0_1px_3px_rgba(0,0,0,0.04)]"
+                    : "bg-transparent"
                     }`}
             >
                 <div className="mx-auto max-w-7xl px-6 lg:px-12">
@@ -46,7 +46,7 @@ export function Navbar() {
 
                         {/* Desktop nav */}
                         <div className="hidden items-center gap-8 md:flex">
-                            {navLinks.slice(1).map((link) => (
+                            {navLinks.map((link) => (
                                 <Link
                                     key={link.href}
                                     href={link.href}
