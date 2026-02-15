@@ -1,4 +1,4 @@
-import Image from "next/image";
+
 import { Button } from "@/components/ui/Button";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -182,18 +182,6 @@ export default function HomePage() {
 
             {/* ─── Products ─── */}
             <section id="products" className="relative z-[1] section-bg py-32 px-6 lg:px-12">
-                {/* Products background image */}
-                <div className="absolute right-0 top-0 w-1/2 h-full opacity-40 pointer-events-none overflow-hidden flex items-start justify-end pr-10 pt-10">
-                    <div className="rounded-image overflow-hidden">
-                        <Image
-                            src="/products-nano-banana.png"
-                            alt=""
-                            width={600}
-                            height={600}
-                            className="w-full h-auto object-contain"
-                        />
-                    </div>
-                </div>
 
                 <div className="mx-auto max-w-7xl relative">
                     <FadeIn>
@@ -219,18 +207,6 @@ export default function HomePage() {
 
             {/* ─── Business Solutions ─── */}
             <section id="solutions" className="relative z-[1] section-bg py-32 px-6 lg:px-12">
-                {/* Solutions background image */}
-                <div className="absolute left-0 bottom-0 w-1/3 h-2/3 opacity-40 pointer-events-none overflow-hidden flex items-end justify-start pl-10 pb-10">
-                    <div className="rounded-image overflow-hidden">
-                        <Image
-                            src="/solutions-nano-banana.png"
-                            alt=""
-                            width={500}
-                            height={500}
-                            className="w-full h-auto object-contain"
-                        />
-                    </div>
-                </div>
 
                 <div className="mx-auto max-w-7xl relative">
                     <div className="grid grid-cols-1 gap-16 lg:grid-cols-2 lg:items-center">
@@ -273,18 +249,6 @@ export default function HomePage() {
 
             {/* ─── About ─── */}
             <section id="about" className="relative z-[1] section-bg py-32 px-6 lg:px-12">
-                {/* About background image */}
-                <div className="absolute right-0 bottom-0 w-1/3 h-2/3 opacity-40 pointer-events-none overflow-hidden flex items-end justify-end pr-10 pb-10">
-                    <div className="rounded-image overflow-hidden">
-                        <Image
-                            src="/about-nano-banana.png"
-                            alt=""
-                            width={500}
-                            height={500}
-                            className="w-full h-auto object-contain"
-                        />
-                    </div>
-                </div>
 
                 <div className="mx-auto max-w-3xl text-center relative">
                     <FadeIn>

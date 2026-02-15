@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Button } from "@/components/ui/Button";
@@ -41,18 +40,6 @@ const values = [
 export default function AboutPage() {
     return (
         <div className="relative z-[1] section-bg pt-32 pb-24 px-6 lg:px-12">
-            {/* Background image */}
-            <div className="absolute right-10 top-32 w-1/3 h-1/2 opacity-40 pointer-events-none">
-                <div className="rounded-image overflow-hidden">
-                    <Image
-                        src="/about-nano-banana.png"
-                        alt=""
-                        width={500}
-                        height={500}
-                        className="w-full h-auto object-contain"
-                    />
-                </div>
-            </div>
 
             <div className="mx-auto max-w-7xl relative">
                 <FadeIn>

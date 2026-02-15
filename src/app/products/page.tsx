@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { ProductCard } from "@/components/ui/ProductCard";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { FadeIn, Stagger, StaggerItem } from "@/components/ui/PageTransition";
@@ -53,18 +52,6 @@ const products = [
 export default function ProductsPage() {
     return (
         <div className="relative z-[1] section-bg pt-32 pb-24 px-6 lg:px-12">
-            {/* Background image */}
-            <div className="absolute right-10 top-20 w-1/2 h-1/2 opacity-40 pointer-events-none">
-                <div className="rounded-image overflow-hidden">
-                    <Image
-                        src="/products-nano-banana.png"
-                        alt=""
-                        width={600}
-                        height={600}
-                        className="w-full h-auto object-contain"
-                    />
-                </div>
-            </div>
 
             <div className="mx-auto max-w-7xl relative">
                 <FadeIn>
