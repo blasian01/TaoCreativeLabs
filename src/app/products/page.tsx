@@ -5,12 +5,18 @@ import { FadeIn, Stagger, StaggerItem } from "@/components/ui/PageTransition";
 import { Button } from "@/components/ui/Button";
 
 export const metadata: Metadata = {
-    title: "Products",
+    title: "SaaS Portfolio | Tao Creative Labs",
     description:
-        "Consumer AI applications by Tao Creative Labs — from AI cooking assistants to virtual try-on tools to creative storytelling platforms.",
+        "Premium AI SaaS applications by Tao Creative Labs — from social media automation platforms to virtual try-on tools to creative storytelling ecosystems.",
 };
 
 const products = [
+    {
+        name: "Agentic Media",
+        description:
+            "AI-powered UGC video creation and social media automation platform designed for scaling digital marketing campaigns and organic growth.",
+        href: "https://www.agenticmedia.app/",
+    },
     {
         name: "ReelChef",
         description:
@@ -56,8 +62,8 @@ export default function ProductsPage() {
             <div className="mx-auto max-w-7xl relative">
                 <FadeIn>
                     <SectionHeading
-                        title="Products"
-                        subtitle="Each product is a fully deployed, production AI application designed for real users."
+                        title="SaaS Portfolio"
+                        subtitle="A collection of fully managed, premium AI platforms powering creative workflows, content generation, and consumer experiences."
                     />
                 </FadeIn>
 
