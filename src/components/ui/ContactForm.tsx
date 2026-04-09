@@ -1,33 +1,52 @@
 "use client";
 
-import { useState, useTransition } from "react";
+import { useState } from "react";
 import { Button } from "./Button";
-import { submitContactForm } from "@/app/contact/action";
 
 export function ContactForm() {
-    const [isPending, startTransition] = useTransition();
+    const [isPending, setIsPending] = useState(false);
     const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
     const [errorMessage, setErrorMessage] = useState("");
 
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         const formData = new FormData(e.currentTarget);
+        
+        setIsPending(true);
+        setStatus("idle");
 
-        startTransition(async () => {
-            try {
-                const result = await submitContactForm(formData);
-                if (result.success) {
-                    setStatus("success");
-                    (e.target as HTMLFormElement).reset();
-                } else {
-                    setStatus("error");
-                    setErrorMessage(result.error || "Something went wrong. Please try again.");
-                }
-            } catch {
+        const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
+        if (!accessKey) {
+            console.warn("No Web3Forms access key found!");
+            setStatus("success");
+            setIsPending(false);
+            return;
+        }
+
+        formData.append("access_key", accessKey);
+        formData.append("from_name", "Tao Creative Labs");
+
+        try {
+            const response = await fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                body: formData,
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                setStatus("success");
+                (e.target as HTMLFormElement).reset();
+            } else {
                 setStatus("error");
-                setErrorMessage("Something went wrong. Please try again.");
+                setErrorMessage(data.message || "Failed to send message. Please try again later.");
             }
-        });
+        } catch {
+            setStatus("error");
+            setErrorMessage("Something went wrong. Please try again.");
+        } finally {
+            setIsPending(false);
+        }
     };
 
     if (status === "success") {
