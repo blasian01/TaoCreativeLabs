@@ -6,7 +6,7 @@ const productColors: Record<string, string> = {
     ReelChef: "from-orange-400 to-red-400",
     Aura: "from-brand-violet to-brand-cyan",
     LucidDreamz: "from-purple-500 to-pink-400",
-    Notica: "from-emerald-400 to-teal-500",
+    Nōtare: "from-emerald-400 to-teal-500",
     Fortaify: "from-brand-cyan to-blue-500",
 };
 

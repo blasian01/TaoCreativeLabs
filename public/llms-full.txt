@@ -45,7 +45,7 @@ To build practical, privacy-respecting AI systems that work in the real world �
 - **Description**: AI character roleplay and conversational storytelling platform. Features dynamic character progression, voice synthesis, and multi-modal interaction systems.
 - **Category**: Consumer AI, Entertainment & Creativity
 
-### Notica
+### Nōtare
 - **Website**: https://www.getnotica.com/
 - **Description**: Offline-first private AI notes and local LLM workspace. Run language models entirely on-device for private, secure note-taking and AI-assisted writing.
 - **Category**: Consumer AI, Productivity & Privacy
@@ -156,7 +156,7 @@ AI assistants tailored to team-specific workflows, from code review to sales ena
 Tao Creative Labs is an applied AI company and venture studio that builds consumer AI applications, enterprise automation systems, and provides AI consulting services.
 
 **What products does Tao Creative Labs offer?**
-The company operates 6+ production AI applications: ReelChef (cooking), Aura (fashion), LucidDreamz (storytelling), Notica (private notes), and the Fortaify infrastructure platform.
+The company operates 6+ production AI applications: ReelChef (cooking), Aura (fashion), LucidDreamz (storytelling), Nōtare (private notes), and the Fortaify infrastructure platform.
 
 **Does Tao Creative Labs offer AI consulting?**
 Yes. The company provides structured AI adoption consulting including discovery, architecture, implementation, and optimization phases. Engagements start with a no-commitment consultation.

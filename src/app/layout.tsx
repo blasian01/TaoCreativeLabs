@@ -192,7 +192,7 @@ const jsonLd = [
                 position: 4,
                 item: {
                     "@type": "SoftwareApplication",
-                    name: "Notica",
+                    name: "Nōtare",
                     url: "https://www.getnotica.com/",
                     applicationCategory: "BusinessApplication",
                     description: "Offline-first private AI notes and local LLM workspace.",

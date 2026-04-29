@@ -36,7 +36,7 @@ const products = [
         href: "https://www.luciddreamz.app/",
     },
     {
-        name: "Notica",
+        name: "Nōtare",
         description:
             "Offline-first private AI notes and local LLM workspace. Run language models entirely on-device for private, secure note-taking and AI-assisted writing.",
         href: "https://www.getnotica.com/",

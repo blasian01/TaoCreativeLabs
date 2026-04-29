@@ -72,7 +72,7 @@ const products = [
         href: "https://www.luciddreamz.app/",
     },
     {
-        name: "Notica",
+        name: "Nōtare",
         description:
             "Offline-first private AI notes and local LLM workspace.",
         href: "https://www.getnotica.com/",

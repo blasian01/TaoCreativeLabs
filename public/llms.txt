@@ -17,7 +17,7 @@ Tao Creative Labs LLC is an AI venture studio focused on practical, applied arti
 - [ReelChef](https://www.reelchef.app/): AI cooking assistant that converts social media food videos into structured recipes and meal plans.
 - [Aura](https://www.wearaura.app/): AI virtual try-on and wardrobe assistant that helps users visualize outfits and clothing.
 - [LucidDreamz](https://www.luciddreamz.app/): AI character roleplay and conversational storytelling platform.
-- [Notica](https://www.getnotica.com/): Offline-first private AI notes and local LLM workspace.
+- [Nōtare](https://www.getnotica.com/): Offline-first private AI notes and local LLM workspace.
 - [Fortaify](https://fortaify.com/): The infrastructure and parent platform powering Tao Creative Labs applications.
 
 ## Services
