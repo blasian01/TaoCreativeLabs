@@ -75,7 +75,7 @@ const products = [
         name: "Nōtare",
         description:
             "Offline-first private AI notes and local LLM workspace.",
-        href: "https://www.getnotica.com/",
+        href: "https://www.notarenotes.com/",
     },
     {
         name: "Fortaify",

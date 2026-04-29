@@ -46,7 +46,7 @@ To build practical, privacy-respecting AI systems that work in the real world ‚Ä
 - **Category**: Consumer AI, Entertainment & Creativity
 
 ### N≈çtare
-- **Website**: https://www.getnotica.com/
+- **Website**: https://www.notarenotes.com/
 - **Description**: Offline-first private AI notes and local LLM workspace. Run language models entirely on-device for private, secure note-taking and AI-assisted writing.
 - **Category**: Consumer AI, Productivity & Privacy
 

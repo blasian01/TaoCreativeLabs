@@ -13,7 +13,7 @@ const productLinks = [
     { href: "https://www.reelchef.app/", label: "ReelChef" },
     { href: "https://www.wearaura.app/", label: "Aura" },
     { href: "https://www.luciddreamz.app/", label: "LucidDreamz" },
-    { href: "https://www.getnotica.com/", label: "Nōtare" },
+    { href: "https://www.notarenotes.com/", label: "Nōtare" },
     { href: "https://fortaify.com/", label: "Fortaify" },
 ];
 
