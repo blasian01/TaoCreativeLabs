@@ -13,7 +13,6 @@ const productLinks = [
     { href: "https://www.wearaura.app/", label: "Aura" },
     { href: "https://www.luciddreamz.app/", label: "LucidDreamz" },
     { href: "https://www.getnotica.com/", label: "Notica" },
-    { href: "https://www.pocketmanga.app/", label: "PocketManga" },
     { href: "https://fortaify.com/", label: "Fortaify" },
 ];
 

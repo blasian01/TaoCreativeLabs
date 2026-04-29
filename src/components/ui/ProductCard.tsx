@@ -7,7 +7,6 @@ const productColors: Record<string, string> = {
     Aura: "from-brand-violet to-brand-cyan",
     LucidDreamz: "from-purple-500 to-pink-400",
     Notica: "from-emerald-400 to-teal-500",
-    PocketManga: "from-rose-400 to-amber-400",
     Fortaify: "from-brand-cyan to-blue-500",
 };
 

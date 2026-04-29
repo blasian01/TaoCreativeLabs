@@ -78,12 +78,6 @@ const products = [
         href: "https://www.getnotica.com/",
     },
     {
-        name: "PocketManga",
-        description:
-            "AI manga and comic creation platform.",
-        href: "https://www.pocketmanga.app/",
-    },
-    {
         name: "Fortaify",
         description:
             "The infrastructure and parent platform powering Tao Creative Labs applications.",

@@ -149,7 +149,7 @@ const jsonLd = [
         name: "Tao Creative Labs Products",
         description: "Consumer AI applications built and operated by Tao Creative Labs.",
         url: "https://taocreativelabs.com/products",
-        numberOfItems: 6,
+        numberOfItems: 5,
         itemListElement: [
             {
                 "@type": "ListItem",
@@ -196,18 +196,6 @@ const jsonLd = [
                     url: "https://www.getnotica.com/",
                     applicationCategory: "BusinessApplication",
                     description: "Offline-first private AI notes and local LLM workspace.",
-                    operatingSystem: "iOS",
-                },
-            },
-            {
-                "@type": "ListItem",
-                position: 5,
-                item: {
-                    "@type": "SoftwareApplication",
-                    name: "PocketManga",
-                    url: "https://www.pocketmanga.app/",
-                    applicationCategory: "EntertainmentApplication",
-                    description: "AI manga and comic creation platform.",
                     operatingSystem: "iOS",
                 },
             },

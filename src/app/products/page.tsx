@@ -42,12 +42,6 @@ const products = [
         href: "https://www.getnotica.com/",
     },
     {
-        name: "PocketManga",
-        description:
-            "AI manga and comic creation platform. Generate panels, characters, and storylines with identity-preserving AI and export publication-ready manga.",
-        href: "https://www.pocketmanga.app/",
-    },
-    {
         name: "Fortaify",
         description:
             "The infrastructure and parent platform powering Tao Creative Labs applications. Shared authentication, billing, and AI orchestration layer.",
