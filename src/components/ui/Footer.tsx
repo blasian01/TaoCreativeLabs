@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Logo } from "@/components/ui/Logo";
 
 const footerLinks = [
     { href: "/products", label: "Products" },
@@ -23,9 +24,7 @@ export function Footer() {
                 <div className="grid grid-cols-1 gap-12 md:grid-cols-3">
                     {/* Brand */}
                     <div>
-                        <p className="font-grotesk text-sm font-light tracking-[0.15em] gradient-text">
-                            TAO CREATIVE LABS
-                        </p>
+                        <Logo className="h-16 w-auto" />
                         <p className="mt-4 text-[13px] font-light leading-relaxed text-ink-muted">
                             Applied artificial intelligence
                             <br />

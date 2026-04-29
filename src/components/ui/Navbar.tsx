@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
+import { Logo } from "@/components/ui/Logo";
 
 const navLinks = [
     { href: "/", label: "Home" },
@@ -39,9 +40,10 @@ export function Navbar() {
                         {/* Logo */}
                         <Link
                             href="/"
-                            className="font-grotesk text-sm font-light tracking-[0.15em] text-ink transition-opacity hover:opacity-60"
+                            aria-label="Tao Creative Labs home"
+                            className="inline-flex items-center transition-opacity hover:opacity-70"
                         >
-                            TAO CREATIVE LABS
+                            <Logo className="h-12 w-auto" priority />
                         </Link>
 
                         {/* Desktop nav */}

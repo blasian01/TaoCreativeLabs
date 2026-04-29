@@ -79,7 +79,7 @@ const jsonLd = [
         "@type": "Organization",
         name: "Tao Creative Labs LLC",
         url: "https://taocreativelabs.com",
-        logo: "https://taocreativelabs.com/logo.svg",
+        logo: "https://taocreativelabs.com/logo.png",
         description:
             "Applied artificial intelligence company and venture studio building consumer AI applications and business automation systems.",
         sameAs: [],
@@ -211,7 +211,7 @@ export default function RootLayout({
     return (
         <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`}>
             <head>
-                <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+                <link rel="icon" href="/favicon.png" type="image/png" />
                 <script
                     type="application/ld+json"
                     dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
