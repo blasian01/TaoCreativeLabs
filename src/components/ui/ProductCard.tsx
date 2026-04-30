@@ -14,21 +14,34 @@ interface ProductCardProps {
     name: string;
     description: string;
     href: string;
+    icon?: string;
     image?: string;
 }
 
-export function ProductCard({ name, description, href, image }: ProductCardProps) {
+export function ProductCard({ name, description, href, icon, image }: ProductCardProps) {
     const gradient = productColors[name] || "from-brand-violet to-brand-cyan";
 
     return (
         <GlassCard className="flex flex-col justify-between h-full">
             <div>
-                <div className="flex items-center gap-3 mb-4">
-                    <div className={`h-8 w-8 rounded-lg bg-gradient-to-br ${gradient} flex items-center justify-center`}>
-                        <span className="font-grotesk text-[11px] font-medium text-white">
-                            {name.slice(0, 2).toUpperCase()}
-                        </span>
-                    </div>
+                <div className="flex items-center gap-4 mb-5">
+                    {icon ? (
+                        <div className="relative h-12 w-12 flex-shrink-0 overflow-hidden rounded-xl border border-white/80 bg-white shadow-[0_4px_14px_rgba(0,0,0,0.08)]">
+                            <Image
+                                src={icon}
+                                alt={`${name} app icon`}
+                                fill
+                                sizes="48px"
+                                className="object-cover"
+                            />
+                        </div>
+                    ) : (
+                        <div className={`h-12 w-12 flex-shrink-0 rounded-xl bg-gradient-to-br ${gradient} flex items-center justify-center`}>
+                            <span className="font-grotesk text-[13px] font-medium text-white">
+                                {name.slice(0, 2).toUpperCase()}
+                            </span>
+                        </div>
+                    )}
                     <h3 className="font-grotesk text-lg font-light tracking-tight text-ink">
                         {name}
                     </h3>

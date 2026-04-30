@@ -52,36 +52,42 @@ const products = [
         description:
             "AI-powered UGC video creation and social media automation platform designed for scaling digital marketing.",
         href: "https://www.agenticmedia.app/",
+        icon: "/project-icons/agentic-media.png",
     },
     {
         name: "ReelChef",
         description:
             "AI cooking assistant that converts social media food videos into structured recipes and meal plans.",
         href: "https://www.reelchef.app/",
+        icon: "/project-icons/reelchef.jpg",
     },
     {
         name: "Aura",
         description:
             "AI virtual try-on and wardrobe assistant that helps users visualize outfits and clothing.",
         href: "https://www.wearaura.app/",
+        icon: "/project-icons/aura.jpg",
     },
     {
         name: "LucidDreamz",
         description:
             "AI character roleplay and conversational storytelling platform.",
         href: "https://www.luciddreamz.app/",
+        icon: "/project-icons/luciddreamz.jpg",
     },
     {
         name: "Nōtare",
         description:
             "Offline-first private AI notes and local LLM workspace.",
         href: "https://www.notarenotes.com/",
+        icon: "/project-icons/notare.png",
     },
     {
         name: "Fortaify",
         description:
             "The infrastructure and parent platform powering Tao Creative Labs applications.",
         href: "https://fortaify.com/",
+        icon: "/project-icons/fortaify.png",
     },
 ];
 
@@ -168,6 +174,7 @@ export default function HomePage() {
                                     name={product.name}
                                     description={product.description}
                                     href={product.href}
+                                    icon={product.icon}
                                 />
                             </StaggerItem>
                         ))}

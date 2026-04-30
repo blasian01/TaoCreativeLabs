@@ -16,36 +16,42 @@ const products = [
         description:
             "AI-powered UGC video creation and social media automation platform designed for scaling digital marketing campaigns and organic growth.",
         href: "https://www.agenticmedia.app/",
+        icon: "/project-icons/agentic-media.png",
     },
     {
         name: "ReelChef",
         description:
             "AI cooking assistant that converts social media food videos into structured recipes and meal plans. Supports multi-platform import, nutritional analysis, and weekly meal planning.",
         href: "https://www.reelchef.app/",
+        icon: "/project-icons/reelchef.jpg",
     },
     {
         name: "Aura",
         description:
             "AI virtual try-on and wardrobe assistant that helps users visualize outfits and clothing. Combines weather-aware recommendations with AI-powered body model generation.",
         href: "https://www.wearaura.app/",
+        icon: "/project-icons/aura.jpg",
     },
     {
         name: "LucidDreamz",
         description:
             "AI character roleplay and conversational storytelling platform. Features dynamic character progression, voice synthesis, and multi-modal interaction systems.",
         href: "https://www.luciddreamz.app/",
+        icon: "/project-icons/luciddreamz.jpg",
     },
     {
         name: "Nōtare",
         description:
             "Offline-first private AI notes and local LLM workspace. Run language models entirely on-device for private, secure note-taking and AI-assisted writing.",
         href: "https://www.notarenotes.com/",
+        icon: "/project-icons/notare.png",
     },
     {
         name: "Fortaify",
         description:
             "The infrastructure and parent platform powering Tao Creative Labs applications. Shared authentication, billing, and AI orchestration layer.",
         href: "https://fortaify.com/",
+        icon: "/project-icons/fortaify.png",
     },
 ];
 
@@ -68,6 +74,7 @@ export default function ProductsPage() {
                                 name={product.name}
                                 description={product.description}
                                 href={product.href}
+                                icon={product.icon}
                             />
                         </StaggerItem>
                     ))}
