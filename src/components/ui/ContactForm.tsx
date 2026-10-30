@@ -17,8 +17,8 @@ export function ContactForm() {
 
         const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
         if (!accessKey) {
-            console.warn("No Web3Forms access key found!");
-            setStatus("success");
+            setStatus("error");
+            setErrorMessage("Messaging is temporarily unavailable. Please try again later.");
             setIsPending(false);
             return;
         }
