@@ -1,0 +1,43 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {createHash} from 'node:crypto';
+import {readFileSync} from 'node:fs';
+import {createRequire} from 'node:module';
+import {runInNewContext} from 'node:vm';
+import ts from 'typescript';
+import {createElement} from 'react';
+import {renderToStaticMarkup} from 'react-dom/server';
+import {mediaAssetSchema} from '../../src/lib/admin/media-schema';
+import {handleMedia} from '../../src/lib/admin/media';
+import {ingestionSchema} from '../../src/lib/admin/validation';
+import * as domain from '../../src/lib/admin/domain';
+const bytes=Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+j1ioAAAAASUVORK5CYII=','base64');
+const asset={ref:'archive:media:'+createHash('sha256').update(bytes).digest('hex'),contentType:'image/png',base64:bytes.toString('base64'),alt:'Synthetic one pixel image'};
+const at='2026-10-31T20:00:00Z';
+const post={app:'aura',platform:'facebook',date:'2026-10-31',slot:'manual-image-test-1858',status:'published',permalink:'https://facebook.com/page/posts/1',caption:'Exact public caption\nline two',concept:'Synthetic image',observedAt:at,source:'synthetic:test',mediaRef:asset.ref};
+const batch={schemaVersion:1,batchId:'synthetic-media-1',observedAt:at,publications:[post],mediaAssets:[asset]};
+test('bounded image ingestion validates signature and digest; preserves caption',()=>{
+ assert.equal(ingestionSchema.parse(batch).publications[0].caption,post.caption);
+ for(const bad of [{...asset,contentType:'image/jpeg'},{...asset,base64:Buffer.from('<svg onload="bad"/>').toString('base64')},{...asset,ref:'archive:media:'+'0'.repeat(64)},{...asset,base64:'A'.repeat(320004)}])assert.equal(mediaAssetSchema.safeParse(bad).success,false);
+ assert.equal(ingestionSchema.safeParse({...batch,mediaAssets:[asset,asset]}).success,false);
+ for(const metric of ['likes','saves','reposts'])assert.equal(ingestionSchema.safeParse({...batch,observations:[{app:'aura',platform:'facebook',entityUrl:post.permalink,entityType:'post',metric,value:0,unit:'count',observedAt:at,periodStart:null,periodEnd:null,source:'synthetic',owner:'Test'}]}).success,true);
+ const {mediaAssets,...legacy}=batch;void mediaAssets;assert.equal('mediaAssets' in ingestionSchema.parse(legacy),false);
+});
+for(const state of ['anonymous','forbidden','unconfigured'] as const)test(`media ${state} denied before read`,async()=>{let called=false;const r=await handleMedia(state,asset.ref,async()=>{called=true;return asset;});assert.equal(called,false);assert.equal(r.status,{anonymous:401,forbidden:403,unconfigured:503}[state]);assert.match(r.headers.get('cache-control')!,/no-store/);});
+test('owner media serves exact private bytes; missing, bad ref, corrupt and unavailable remain distinct',async()=>{
+ const r=await handleMedia('owner',asset.ref,async()=>asset);assert.equal(r.status,200);assert.deepEqual(Buffer.from(await r.arrayBuffer()),bytes);assert.equal(r.headers.get('content-type'),'image/png');assert.equal(r.headers.get('x-content-type-options'),'nosniff');assert.match(r.headers.get('cache-control')!,/private, no-store/);
+ assert.equal((await handleMedia('owner','file:///private',async()=>{throw Error('must not read');})).status,400);
+ assert.equal((await handleMedia('owner',asset.ref,async()=>null)).status,404);
+ assert.equal((await handleMedia('owner',asset.ref,async()=>({...asset,base64:'bad'}))).status,503);
+});
+test('actual post component joins only same post/app/platform, renders zero/null/time/window and protected preview',()=>{
+ const req=createRequire(import.meta.url),exports:any={};
+ const source=ts.transpileModule(readFileSync('src/components/admin/PostEvidence.tsx','utf8'),{compilerOptions:{module:ts.ModuleKind.CommonJS,jsx:ts.JsxEmit.ReactJSX}}).outputText;
+ runInNewContext(source,{exports,require:(name:string)=>name==='@/lib/admin/domain'?domain:req(name)});
+ const o={app:'aura',platform:'facebook',entityType:'post',entityUrl:post.permalink,metric:'views',value:0,unit:'count',observedAt:at,periodStart:null,periodEnd:null,source:'synthetic metric source',owner:'Test'};
+ const rows=[o,{...o,metric:'comments',value:null},{...o,app:'glyph',metric:'wrong-app'},{...o,entityType:'account',metric:'account-total'},{...o,entityUrl:'https://facebook.com/page/posts/2',metric:'wrong-post'}];
+ const html=renderToStaticMarkup(createElement(exports.PostEvidence,{post,observations:rows}));
+ for(const expected of ['views: 0','comments: Unknown',at,'Unknown start','Unknown end','synthetic metric source','/api/admin/media?ref='])assert.ok(html.includes(expected));
+ for(const excluded of ['wrong-app','account-total','wrong-post'])assert.ok(!html.includes(excluded));
+ const empty=renderToStaticMarkup(createElement(exports.PostEvidence,{post,observations:[]}));assert.ok(empty.includes('No post measurements collected'));
+});

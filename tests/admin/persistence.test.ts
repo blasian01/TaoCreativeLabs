@@ -30,3 +30,17 @@ test('offline Postgres: A/B/retry A is a no-op for every item; conflicts roll ba
 });
 test('offline Postgres: older offset publication cannot replace a newer instant',async()=>{const db=await database();try{const {ingestBatch}=load('src/lib/admin/db.ts',db);await ingestBatch(batch('batch_newer',newer,'newer'));await ingestBatch(batch('batch_older',older,'older'));const row=await db.query<{payload:any}>("SELECT payload FROM tao_admin_items WHERE kind='publications'");assert.equal(row.rows[0].payload.caption,'newer');}finally{await db.close();}});
 test('offline Postgres: business history preserves microseconds and roundtrips distinct snapshots',async()=>{const db=await database();try{const {writeBusiness,businessVersions,readBusiness}=load('src/lib/admin/business.ts',db);const ats=['2026-10-31T01:02:03.123456Z','2026-10-31T01:02:03.123457Z'];for(const generatedAt of ats)await writeBusiness({schemaVersion:2,generatedAt,observations:[],catalog:[]});const versions=await businessVersions();assert.deepEqual(Array.from(versions),ats.toReversed());for(const at of versions)assert.equal((await readBusiness(at)).generatedAt,at);const ui=readFileSync('src/components/admin/BusinessWorkspace.tsx','utf8');assert.ok(ui.includes('value={snapshot.generatedAt}'));}finally{await db.close();}});
+
+test('offline Postgres: images are immutable, retry-safe and excluded from dashboard snapshot',async()=>{
+ const db=await database();try{
+  const {ingestBatch,readMedia,readSnapshot}=load('src/lib/admin/db.ts',db);
+  const media={ref:'archive:media:'+'a'.repeat(64),contentType:'image/png',base64:'synthetic-offline-bytes',alt:'Synthetic'};
+  const b={...batch('batch_media1',newer,'caption'),mediaAssets:[media]};
+  await ingestBatch(b);await ingestBatch(b);
+  assert.equal((await readMedia(media.ref)).base64,media.base64);
+  const snap=await readSnapshot();assert.equal(snap.publications.length,1);assert.ok(!JSON.stringify(snap).includes(media.base64));
+  await assert.rejects(ingestBatch({...b,batchId:'batch_media2',mediaAssets:[{...media,base64:'changed'}]}));
+  assert.equal((await readMedia(media.ref)).base64,media.base64);
+  assert.equal((await db.query('SELECT * FROM tao_admin_batches')).rows.length,1);
+ }finally{await db.close();}
+});
