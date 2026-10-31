@@ -1,19 +1,21 @@
 interface SectionHeadingProps {
     title: string;
+    as?: "h1" | "h2";
     subtitle?: string;
     align?: "left" | "center";
 }
 
 export function SectionHeading({
     title,
+    as: Heading = "h2",
     subtitle,
     align = "center",
 }: SectionHeadingProps) {
     return (
         <div className={`mb-16 ${align === "center" ? "text-center" : "text-left"}`}>
-            <h2 className="font-grotesk text-3xl font-light tracking-tight text-ink md:text-4xl">
+            <Heading className="font-grotesk text-3xl font-light tracking-tight text-ink md:text-4xl">
                 {title}
-            </h2>
+            </Heading>
             {subtitle && (
                 <p className="mt-4 text-[15px] font-light leading-relaxed text-ink-muted max-w-2xl mx-auto">
                     {subtitle}

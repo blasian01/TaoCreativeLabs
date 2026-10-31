@@ -5,6 +5,9 @@ import { Button } from "@/components/ui/Button";
 import { FadeIn, Stagger, StaggerItem } from "@/components/ui/PageTransition";
 
 export const metadata: Metadata = {
+    alternates: { canonical: "/solutions" },
+    openGraph: { images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Tao Creative Labs" }], title: "Business Solutions | Tao Creative Labs", description: "Enterprise AI automation, knowledge systems, and custom deployments by Tao Creative Labs.", url: "/solutions" },
+    twitter: { card: "summary_large_image", title: "Business Solutions | Tao Creative Labs", description: "Enterprise AI automation, knowledge systems, and custom deployments by Tao Creative Labs.", images: ["/opengraph-image"] },
     title: "Business Solutions",
     description:
         "Enterprise AI automation, knowledge systems, and custom deployments by Tao Creative Labs.",
@@ -42,8 +45,8 @@ const solutions = [
     {
         title: "Private AI Deployments",
         description:
-            "Run AI models entirely within your infrastructure. We deploy and optimize local LLMs for organizations that require complete data sovereignty and air-gapped operation.",
-        capabilities: ["On-premise deployment", "Model optimization", "Air-gapped operation", "Data sovereignty"],
+            "Assess local and connected deployment options against the requirements of the specific project. Review data processing, infrastructure, model readiness and operational constraints before implementation.",
+        capabilities: ["Deployment assessment", "Model evaluation", "Connectivity requirements", "Data handling review"],
         accent: "from-brand-rose to-pink-400",
     },
     {
@@ -61,7 +64,7 @@ export default function SolutionsPage() {
 
             <div className="mx-auto max-w-7xl relative">
                 <FadeIn>
-                    <SectionHeading
+                    <SectionHeading as="h1"
                         title="Business Solutions"
                         subtitle="Enterprise AI systems designed to integrate with your infrastructure, respect your data, and deliver measurable results."
                     />

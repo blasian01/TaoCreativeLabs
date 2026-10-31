@@ -1,6 +1,5 @@
 import { ImageResponse } from "next/og";
 
-export const runtime = "edge";
 export const alt = "Tao Creative Labs — Applied Artificial Intelligence";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
@@ -25,9 +24,6 @@ export default async function Image() {
                     style={{
                         position: "absolute",
                         inset: 0,
-                        backgroundImage:
-                            "linear-gradient(rgba(0,0,0,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0,0,0,0.04) 1px, transparent 1px)",
-                        backgroundSize: "60px 60px",
                     }}
                 />
 

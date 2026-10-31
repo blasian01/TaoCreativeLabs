@@ -6,12 +6,13 @@
     "dev": "next dev",
     "build": "next build --webpack",
     "start": "next start",
-    "lint": "eslint src scripts/admin tests/admin",
+    "lint": "eslint .",
     "test:admin": "tsx --test tests/admin/*.test.ts",
     "typecheck": "tsc --noEmit",
     "admin:migrate": "tsx scripts/admin/migrate.ts",
     "admin:ingest": "tsx scripts/admin/ingest.ts",
-    "test:business": "node tests/business-insights/run.cjs node_modules"
+    "test:business": "node tests/business-insights/run.cjs node_modules",
+    "test:seo": "python3 scripts/audit-public-output.py"
   },
   "dependencies": {
     "@auth0/nextjs-auth0": "^4.33.0",

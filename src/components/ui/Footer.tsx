@@ -1,3 +1,4 @@
+import { publicProducts } from "@/data/publicPortfolio";
 import Link from "next/link";
 import { Logo } from "@/components/ui/Logo";
 
@@ -9,13 +10,7 @@ const footerLinks = [
     { href: "/contact", label: "Contact" },
 ];
 
-const productLinks = [
-    { href: "https://www.reelchef.app/", label: "ReelChef" },
-    { href: "https://www.wearaura.app/", label: "Aura" },
-    { href: "https://www.luciddreamz.app/", label: "LucidDreamz" },
-    { href: "https://www.notarenotes.com/", label: "Nōtare" },
-    { href: "https://fortaify.com/", label: "Fortaify" },
-];
+const productLinks = publicProducts.filter((product) => product.href).map((product) => ({ href: product.href!, label: product.name }));
 
 export function Footer() {
     return (

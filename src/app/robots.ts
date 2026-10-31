@@ -6,9 +6,9 @@ export default function robots(): MetadataRoute.Robots {
             {
                 userAgent: "*",
                 allow: "/",
-                disallow: ["/admin", "/api/admin", "/auth"],
+                disallow: ["/admin", "/auth/", "/api/"],
             },
         ],
-        sitemap: "https://taocreativelabs.com/sitemap.xml",
+        sitemap: "https://www.taocreativelabs.com/sitemap.xml",
     };
 }

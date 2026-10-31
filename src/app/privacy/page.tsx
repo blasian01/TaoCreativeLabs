@@ -4,6 +4,9 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { FadeIn, Stagger, StaggerItem } from "@/components/ui/PageTransition";
 
 export const metadata: Metadata = {
+    alternates: { canonical: "/privacy" },
+    openGraph: { images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Tao Creative Labs" }], title: "Privacy Policy | Tao Creative Labs", description: "Privacy Policy for Tao Creative Labs LLC — how we collect, use, and protect your information.", url: "/privacy" },
+    twitter: { card: "summary_large_image", title: "Privacy Policy | Tao Creative Labs", description: "Privacy Policy for Tao Creative Labs LLC — how we collect, use, and protect your information.", images: ["/opengraph-image"] },
     title: "Privacy Policy",
     description:
         "Privacy Policy for Tao Creative Labs LLC — how we collect, use, and protect your information.",
@@ -86,7 +89,7 @@ export default function PrivacyPage() {
         <div className="relative z-[1] section-bg pt-32 pb-24 px-6 lg:px-12">
             <div className="mx-auto max-w-4xl">
                 <FadeIn>
-                    <SectionHeading
+                    <SectionHeading as="h1"
                         title="Privacy Policy"
                         subtitle="Last updated: February 12, 2026"
                     />
