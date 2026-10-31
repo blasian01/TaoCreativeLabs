@@ -10,7 +10,8 @@
     "test:admin": "tsx --test tests/admin/*.test.ts",
     "typecheck": "tsc --noEmit",
     "admin:migrate": "tsx scripts/admin/migrate.ts",
-    "admin:ingest": "tsx scripts/admin/ingest.ts"
+    "admin:ingest": "tsx scripts/admin/ingest.ts",
+    "test:business": "node tests/business-insights/run.cjs node_modules"
   },
   "dependencies": {
     "@auth0/nextjs-auth0": "^4.33.0",

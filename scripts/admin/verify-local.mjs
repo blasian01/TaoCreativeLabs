@@ -7,7 +7,7 @@ import {spawn} from 'node:child_process';
 import assert from 'node:assert/strict';
 import {pathToFileURL} from 'node:url';
 import path from 'node:path';
-const [envFile,batchFile]=process.argv.slice(2);
+const [envFile,batchFile,businessFile]=process.argv.slice(2);
 if(!envFile||!batchFile)throw Error('Private env file and sanitized batch file required');
 const env={...process.env,...parseEnv(fs.readFileSync(envFile,'utf8'))};
 const secret=randomBytes(32).toString('hex');
@@ -22,7 +22,7 @@ try{
  for(let i=0;i<60;i++){try{const r=await fetch(base+'/admin');if(r.ok)break;}catch{}await new Promise(r=>setTimeout(r,500));if(i===59)throw Error('Server startup timed out');}
  for(const route of ['/','/products','/contact','/about','/solutions']){assert.equal((await fetch(base+route)).status,200);}pass('public marketing pages remain available');
  const publicPage=await fetch(base+'/admin');const html=await publicPage.text();assert.ok(html.includes('Continue with GitHub'));assert.ok(!html.includes('story_fbid=')&&!html.includes('Post library'));assert.ok(publicPage.headers.get('cache-control').includes('no-store'));pass('anonymous page has login only, no dataset and private no-store');
- for(const endpoint of ['/api/admin/snapshot','/api/admin/export']){const r=await fetch(base+endpoint);assert.equal(r.status,401);pass('anonymous denied '+endpoint);}
+ for(const endpoint of ['/api/admin/snapshot','/api/admin/export','/api/admin/business']){const r=await fetch(base+endpoint);assert.equal(r.status,401);pass('anonymous denied '+endpoint);}
  const bad=await fetch(base+'/api/admin/ingest',{method:'POST',headers:{'content-type':'application/json'},body:'{}'});assert.equal(bad.status,401);pass('unauthorized ingestion denied');
  const auth={authorization:'Bearer '+env.ADMIN_INGEST_TOKEN,'content-type':'application/json'};const body=fs.readFileSync(batchFile,'utf8');
  for(let i=0;i<2;i++){const r=await fetch(base+'/api/admin/ingest',{method:'POST',headers:auth,body});assert.equal(r.status,200);assert.equal((await r.json()).accepted,true);}pass('actual source batch durable and idempotently acknowledged twice');
@@ -32,6 +32,16 @@ try{
  const recheck=await fetch(base+'/api/admin/snapshot',{headers:ownerHeaders});assert.ok((await recheck.json()).observations.every(p=>p.value===0));pass('failed conflict leaves measured zeros intact');
  const ownerPage=await fetch(base+'/admin',{headers:ownerHeaders});assert.equal(ownerPage.status,200);assert.ok((await ownerPage.text()).includes('Post library'));pass('owner private SSR renders dashboard');
  assert.equal((await fetch(base+'/admin/business',{headers:ownerHeaders})).status,200);pass('business tab remains owner guarded');
+ if(businessFile){
+ const businessBody=fs.readFileSync(businessFile,'utf8');
+ assert.equal((await fetch(base+'/api/admin/business',{method:'POST',headers:{'content-type':'application/json'},body:businessBody})).status,401);pass('anonymous business ingestion denied');
+ for(let i=0;i<2;i++)assert.equal((await fetch(base+'/api/admin/business',{method:'POST',headers:auth,body:businessBody})).status,200);pass('business snapshot stored and exact repeat idempotent');
+ const br=await fetch(base+'/api/admin/business',{headers:ownerHeaders});assert.equal(br.status,200);const business=await br.json();assert.equal(business.rows.length,73);assert.equal(business.catalog.length,24);assert.equal(business.rows.filter(r=>r.observation.metric==='source_auth_accounts_current').length,4);assert.ok(business.rows.filter(r=>r.observation.metric==='registered_users').every(r=>r.observation.value===null));pass('source counts remain qualified and registered customers unknown');
+ const conflictB=JSON.parse(businessBody);conflictB.observations[0].value+=1;assert.equal((await fetch(base+'/api/admin/business',{method:'POST',headers:auth,body:JSON.stringify(conflictB)})).status,409);pass('business same-time identity cannot replace immutable snapshot');
+ const original=await fetch(base+'/api/admin/business?snapshot='+encodeURIComponent(JSON.parse(businessBody).generatedAt),{headers:ownerHeaders});assert.equal(original.status,200);assert.equal((await original.json()).rows[0].observation.value,JSON.parse(businessBody).observations[0].value);pass('business historic snapshot survives conflicting write unchanged');
+ const businessPage=await fetch(base+'/admin/business',{headers:ownerHeaders});const bp=await businessPage.text();assert.equal(businessPage.status,200);assert.ok(bp.includes('Business performance, with evidence.')&&bp.includes('Source-project accounts'));pass('owner business SSR renders evidence catalog and explicit limitations');
+ assert.equal((await fetch(base+'/api/admin/business',{headers:{cookie:await cookie('github|123')}})).status,403);pass('nonowner business evidence denied');
+ }
  const outsider=await cookie('github|123');const denied=await fetch(base+'/api/admin/snapshot',{headers:{cookie:outsider}});assert.equal(denied.status,403);assert.ok(!(await denied.text()).includes('story_fbid'));pass('SDK-valid outsider GitHub identity denied before dataset');
  const expired=await cookie('github|67053548',now-120);assert.equal((await fetch(base+'/api/admin/snapshot',{headers:{cookie:expired}})).status,401);pass('expired SDK cookie denied');
  assert.equal((await fetch(base+'/api/admin/snapshot',{headers:{cookie:'__session=forged'}})).status,401);pass('forged cookie denied');
