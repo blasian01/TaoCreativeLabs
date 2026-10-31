@@ -20,7 +20,7 @@ test('bounded image ingestion validates signature and digest; preserves caption'
  assert.equal(ingestionSchema.parse(batch).publications[0].caption,post.caption);
  for(const bad of [{...asset,contentType:'image/jpeg'},{...asset,base64:Buffer.from('<svg onload="bad"/>').toString('base64')},{...asset,ref:'archive:media:'+'0'.repeat(64)},{...asset,base64:'A'.repeat(320004)}])assert.equal(mediaAssetSchema.safeParse(bad).success,false);
  assert.equal(ingestionSchema.safeParse({...batch,mediaAssets:[asset,asset]}).success,false);
- for(const metric of ['likes','saves','reposts'])assert.equal(ingestionSchema.safeParse({...batch,observations:[{app:'aura',platform:'facebook',entityUrl:post.permalink,entityType:'post',metric,value:0,unit:'count',observedAt:at,periodStart:null,periodEnd:null,source:'synthetic',owner:'Test'}]}).success,true);
+ for(const metric of ['likes','saves','reposts','post_interactions','profile_visits','external_link_taps','address_taps','accounts_engaged'])assert.equal(ingestionSchema.safeParse({...batch,observations:[{app:'aura',platform:'facebook',entityUrl:post.permalink,entityType:'post',metric,value:0,unit:'count',observedAt:at,periodStart:null,periodEnd:null,source:'synthetic',owner:'Test'}]}).success,true);
  const {mediaAssets,...legacy}=batch;void mediaAssets;assert.equal('mediaAssets' in ingestionSchema.parse(legacy),false);
 });
 for(const state of ['anonymous','forbidden','unconfigured'] as const)test(`media ${state} denied before read`,async()=>{let called=false;const r=await handleMedia(state,asset.ref,async()=>{called=true;return asset;});assert.equal(called,false);assert.equal(r.status,{anonymous:401,forbidden:403,unconfigured:503}[state]);assert.match(r.headers.get('cache-control')!,/no-store/);});
@@ -40,4 +40,15 @@ test('actual post component joins only same post/app/platform, renders zero/null
  for(const expected of ['views: 0','comments: Unknown',at,'Unknown start','Unknown end','synthetic metric source','/api/admin/media?ref='])assert.ok(html.includes(expected));
  for(const excluded of ['wrong-app','account-total','wrong-post'])assert.ok(!html.includes(excluded));
  const empty=renderToStaticMarkup(createElement(exports.PostEvidence,{post,observations:[]}));assert.ok(empty.includes('No post measurements collected'));
+});
+
+// New owner-visible insight labels are not a new machine-reader grant.
+test('owner insight labels preserve null/zero, source times and unknown windows without granting reader access',async()=>{
+ const {viewerEvidence}=await import('../../src/lib/admin/viewer');
+ const obs=['post_interactions','profile_visits','external_link_taps','address_taps','accounts_engaged'].flatMap(metric=>[0,null].map(value=>({app:'aura',platform:'facebook',entityUrl:post.permalink,entityType:'post',metric,value,unit:'count',observedAt:at,periodStart:null,periodEnd:null,source:'synthetic owner insight source',owner:'Test'})));
+ const parsed=ingestionSchema.parse({...batch,observations:obs});
+ assert.equal(parsed.observations.length,10);assert.equal(parsed.observations.filter(o=>o.value===null).length,5);
+ for(const o of parsed.observations){assert.equal(o.observedAt,at);assert.equal(o.periodStart,null);assert.equal(o.periodEnd,null);}
+ const snap={generatedAt:at,lastSyncAt:at,agents:[],accounts:[],publications:parsed.publications,observations:parsed.observations,experiments:[],business:[]};
+ for(const role of ['portfolio','creative'] as const)assert.equal(viewerEvidence(snap,{role,clientId:'synthetic'},new URLSearchParams()).observations.length,0);
 });
