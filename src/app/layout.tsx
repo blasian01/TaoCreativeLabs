@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
-import { Navbar } from "@/components/ui/Navbar";
-import { Footer } from "@/components/ui/Footer";
-import { AnimatedGrid } from "@/components/ui/AnimatedGrid";
+import { SiteChrome } from "@/components/admin/SiteChrome";
 
 const inter = Inter({
     subsets: ["latin"],
@@ -218,10 +216,7 @@ export default function RootLayout({
                 />
             </head>
             <body className="font-sans antialiased">
-                <AnimatedGrid />
-                <Navbar />
-                <main className="min-h-screen">{children}</main>
-                <Footer />
+                <SiteChrome>{children}</SiteChrome>
             </body>
         </html>
     );

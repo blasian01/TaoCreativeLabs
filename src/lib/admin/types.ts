@@ -1,0 +1,10 @@
+export const APPS = ['reelchef', 'aura', 'agentic-media', 'glyph', 'notare'] as const;
+export type AppId = typeof APPS[number];
+export const PLATFORMS = ['facebook', 'linkedin', 'instagram', 'tiktok', 'x'] as const;
+export type Platform = typeof PLATFORMS[number];
+export type Agent = { id: string; name: string; role: string; kind: 'lead' | 'publisher' | 'specialist' | 'editor' | 'outreach'; apps: AppId[] };
+export type Account = { app: AppId; platform: Platform; url: string; owner: string; verifiedAt: string | null; source: string; access: 'documented' | 'verified' | 'unknown' };
+export type Publication = { app: AppId; platform: Platform; date: string; slot: string; status: 'published' | 'draft' | 'blocked' | 'scheduled' | 'failed' | 'deferred'; permalink: string | null; caption: string; concept: string; observedAt: string; source: string };
+export type Observation = { app: AppId; platform: Platform; entityUrl: string; entityType: 'account' | 'post'; metric: string; value: number | null; unit: 'count' | 'percent'; observedAt: string; periodStart: string | null; periodEnd: string | null; source: string; owner: string };
+export type Experiment = { id: string; app: AppId; owner: string; hypothesis: string; status: 'proposed' | 'running' | 'complete' | 'blocked'; metric: string; evidence: string; outcome: string | null };
+export type MarketingSnapshot = { generatedAt: string; lastSyncAt: string | null; agents: Agent[]; accounts: Account[]; publications: Publication[]; observations: Observation[]; experiments: Experiment[]; observationHistoryTruncated?: boolean; business: unknown[] };
