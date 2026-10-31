@@ -23,6 +23,8 @@ try{
  for(const route of ['/','/products','/contact','/about','/solutions']){assert.equal((await fetch(base+route)).status,200);}pass('public marketing pages remain available');
  const publicPage=await fetch(base+'/admin');const html=await publicPage.text();assert.ok(html.includes('Continue with GitHub'));assert.ok(!html.includes('story_fbid=')&&!html.includes('Post library'));assert.ok(publicPage.headers.get('cache-control').includes('no-store'));pass('anonymous page has login only, no dataset and private no-store');
  for(const endpoint of ['/api/admin/snapshot','/api/admin/export','/api/admin/business']){const r=await fetch(base+endpoint);assert.equal(r.status,401);pass('anonymous denied '+endpoint);}
+ const viewerMissing=await fetch(base+'/api/marketing/evidence');assert.equal(viewerMissing.status,503);assert.ok(!(await viewerMissing.text()).includes('story_fbid'));pass('unprovisioned read-only viewer fails closed without dataset');
+ assert.equal((await fetch(base+'/api/marketing/evidence',{method:'POST'})).status,405);pass('marketing viewer endpoint rejects writes with405');
  const bad=await fetch(base+'/api/admin/ingest',{method:'POST',headers:{'content-type':'application/json'},body:'{}'});assert.equal(bad.status,401);pass('unauthorized ingestion denied');
  const auth={authorization:'Bearer '+env.ADMIN_INGEST_TOKEN,'content-type':'application/json'};const body=fs.readFileSync(batchFile,'utf8');
  for(let i=0;i<2;i++){const r=await fetch(base+'/api/admin/ingest',{method:'POST',headers:auth,body});assert.equal(r.status,200);assert.equal((await r.json()).accepted,true);}pass('actual source batch durable and idempotently acknowledged twice');
