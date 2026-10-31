@@ -5,16 +5,19 @@ import { Button } from "@/components/ui/Button";
 import { FadeIn, Stagger, StaggerItem } from "@/components/ui/PageTransition";
 
 export const metadata: Metadata = {
+    alternates: { canonical: "/about" },
+    openGraph: { images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Tao Creative Labs" }], title: "About | Tao Creative Labs", description: "Learn about Tao Creative Labs, the software studio behind a portfolio of products and projects, and explore its AI consulting and implementation services.", url: "/about" },
+    twitter: { card: "summary_large_image", title: "About | Tao Creative Labs", description: "Learn about Tao Creative Labs, the software studio behind a portfolio of products and projects, and explore its AI consulting and implementation services.", images: ["/opengraph-image"] },
     title: "About",
     description:
-        "Tao Creative Labs is an AI venture studio focused on practical applied AI, privacy-respecting systems, and production-grade intelligent software.",
+        "Learn about Tao Creative Labs, the software studio behind a portfolio of products and projects, and explore its AI consulting and implementation services.",
 };
 
 const values = [
     {
         title: "Engineering-driven",
         description:
-            "Every decision starts with engineering rigor. We ship production systems, not proof-of-concepts. Our products run continuously, serve real users, and must be reliable.",
+            "We build and iterate on software with attention to engineering, practical workflows and the requirements of each product.",
         color: "text-brand-violet",
     },
     {
@@ -43,7 +46,7 @@ export default function AboutPage() {
 
             <div className="mx-auto max-w-7xl relative">
                 <FadeIn>
-                    <SectionHeading title="About" />
+                    <SectionHeading as="h1" title="About" />
                 </FadeIn>
 
                 {/* Mission */}
@@ -55,8 +58,7 @@ export default function AboutPage() {
                             from consumer applications to enterprise automation systems.
                         </p>
                         <p className="mt-6 text-[17px] font-light leading-[1.8] text-ink-light">
-                            Founded on the principle that AI should be practical, private, and
-                            accessible, we maintain a portfolio of production applications and
+                            We maintain a portfolio of products and projects and
                             provide consulting services to businesses navigating AI adoption.
                         </p>
                     </div>
@@ -88,9 +90,9 @@ export default function AboutPage() {
                     <div className="mt-24 liquid-glass rounded-2xl p-12">
                         <div className="grid grid-cols-2 gap-8 md:grid-cols-4">
                             <div className="text-center">
-                                <p className="font-grotesk text-3xl font-light gradient-text">6+</p>
+                                <p className="font-grotesk text-3xl font-light gradient-text">Portfolio</p>
                                 <p className="mt-2 text-[12px] font-light uppercase tracking-[0.15em] text-ink-muted">
-                                    Live products
+                                    Products and projects
                                 </p>
                             </div>
                             <div className="text-center">

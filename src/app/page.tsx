@@ -1,3 +1,5 @@
+import { publicProducts as products } from "@/data/publicPortfolio";
+import type { Metadata } from "next";
 
 import { Button } from "@/components/ui/Button";
 import { GlassCard } from "@/components/ui/GlassCard";
@@ -5,6 +7,8 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ProductCard } from "@/components/ui/ProductCard";
 import { ContactForm } from "@/components/ui/ContactForm";
 import { FadeIn, Stagger, StaggerItem } from "@/components/ui/PageTransition";
+
+export const metadata: Metadata = { alternates: { canonical: "/" } };
 
 const services = [
     {
@@ -46,50 +50,6 @@ const services = [
     },
 ];
 
-const products = [
-    {
-        name: "Agentic Media",
-        description:
-            "AI-powered UGC video creation and social media automation platform designed for scaling digital marketing.",
-        href: "https://www.agenticmedia.app/",
-        icon: "/project-icons/agentic-media.png",
-    },
-    {
-        name: "ReelChef",
-        description:
-            "AI cooking assistant that converts social media food videos into structured recipes and meal plans.",
-        href: "https://www.reelchef.app/",
-        icon: "/project-icons/reelchef.jpg",
-    },
-    {
-        name: "Aura",
-        description:
-            "AI virtual try-on and wardrobe assistant that helps users visualize outfits and clothing.",
-        href: "https://www.wearaura.app/",
-        icon: "/project-icons/aura.jpg",
-    },
-    {
-        name: "LucidDreamz",
-        description:
-            "AI character roleplay and conversational storytelling platform.",
-        href: "https://www.luciddreamz.app/",
-        icon: "/project-icons/luciddreamz.jpg",
-    },
-    {
-        name: "Nōtare",
-        description:
-            "Offline-first private AI notes and local LLM workspace.",
-        href: "https://www.notarenotes.com/",
-        icon: "/project-icons/notare.png",
-    },
-    {
-        name: "Fortaify",
-        description:
-            "The infrastructure and parent platform powering Tao Creative Labs applications.",
-        href: "https://fortaify.com/",
-        icon: "/project-icons/fortaify.png",
-    },
-];
 
 const businessServices = [
     "AI workflow automation",
@@ -131,7 +91,7 @@ export default function HomePage() {
 
                         <FadeIn delay={0.3}>
                             <p className="mt-6 text-lg font-light leading-relaxed text-black/80 md:text-xl">
-                                We Build and Scale Premium AI SaaS Products.
+                                Apps and AI services for everyday work.
                             </p>
                         </FadeIn>
 
@@ -143,7 +103,7 @@ export default function HomePage() {
 
                         <FadeIn delay={0.55}>
                             <div className="mt-12 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-                                <Button href="/products">View Our SaaS Portfolio</Button>
+                                <Button href="/products">View Our Product Portfolio</Button>
                                 <Button href="/contact" variant="secondary">
                                     Work With Us
                                 </Button>
@@ -162,8 +122,8 @@ export default function HomePage() {
                 <div className="mx-auto max-w-7xl relative">
                     <FadeIn>
                         <SectionHeading
-                            title="Our SaaS Portfolio"
-                            subtitle="A collection of fully managed, premium AI platforms powering creative workflows, content generation, and consumer experiences."
+                            title="Our Product Portfolio"
+                            subtitle="Explore products from Tao Creative Labs. Visit each product site for current capabilities, availability and terms."
                         />
                     </FadeIn>
 
@@ -232,8 +192,8 @@ export default function HomePage() {
                                 />
                                 <p className="text-[15px] font-light leading-relaxed text-ink-light">
                                     Companies hire Tao Creative Labs to integrate AI into their
-                                    existing workflows. We build systems that are private, reliable,
-                                    and designed to operate within your infrastructure.
+                                    existing workflows. We assess local and connected deployment options
+                                    against the requirements of each project.
                                 </p>
                             </div>
                         </FadeIn>
@@ -269,13 +229,13 @@ export default function HomePage() {
                     </FadeIn>
                     <FadeIn delay={0.15}>
                         <p className="text-[16px] font-light leading-[1.8] text-ink-light">
-                            Tao Creative Labs is an independent venture studio focused on building, scaling, and operating next-generation SaaS businesses. We specialize in transforming cutting-edge artificial intelligence models into premium, reliable applications that people love to use. Every product in our portfolio is engineered for production, designed with care, and built to scale.
+                            Tao Creative Labs is an independent software studio. We develop consumer applications and offer AI consulting and implementation services. Each product has its own capabilities, availability and terms; visit its official site before choosing a workflow.
                         </p>
                     </FadeIn>
                     <FadeIn delay={0.3}>
                         <div className="mt-12 grid grid-cols-3 gap-8">
                             <div>
-                                <p className="font-grotesk text-2xl font-light gradient-text">6+</p>
+                                <p className="font-grotesk text-2xl font-light gradient-text">Apps</p>
                                 <p className="mt-1 text-[12px] font-light uppercase tracking-[0.15em] text-ink-muted">
                                     Products
                                 </p>
@@ -287,9 +247,9 @@ export default function HomePage() {
                                 </p>
                             </div>
                             <div>
-                                <p className="font-grotesk text-2xl font-light gradient-text">Private</p>
+                                <p className="font-grotesk text-2xl font-light gradient-text">Considered</p>
                                 <p className="mt-1 text-[12px] font-light uppercase tracking-[0.15em] text-ink-muted">
-                                    by Design
+                                    Data Choices
                                 </p>
                             </div>
                         </div>

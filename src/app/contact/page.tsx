@@ -4,6 +4,9 @@ import { ContactForm } from "@/components/ui/ContactForm";
 import { FadeIn } from "@/components/ui/PageTransition";
 
 export const metadata: Metadata = {
+    alternates: { canonical: "/contact" },
+    openGraph: { images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Tao Creative Labs" }], title: "Contact | Tao Creative Labs", description: "Get in touch with Tao Creative Labs — request a consultation, discuss a project, or learn how AI can work for your business.", url: "/contact" },
+    twitter: { card: "summary_large_image", title: "Contact | Tao Creative Labs", description: "Get in touch with Tao Creative Labs — request a consultation, discuss a project, or learn how AI can work for your business.", images: ["/opengraph-image"] },
     title: "Contact",
     description:
         "Get in touch with Tao Creative Labs — request a consultation, discuss a project, or learn how AI can work for your business.",
@@ -14,7 +17,7 @@ export default function ContactPage() {
         <div className="relative z-[1] bg-surface-50 pt-32 pb-24 px-6 lg:px-12">
             <div className="mx-auto max-w-2xl">
                 <FadeIn>
-                    <SectionHeading
+                    <SectionHeading as="h1"
                         title="Contact Us"
                         subtitle="Whether you have a project in mind or want to explore possibilities, we are here to help."
                     />

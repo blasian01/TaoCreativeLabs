@@ -1,3 +1,4 @@
+import { publicProducts as products } from "@/data/publicPortfolio";
 import type { Metadata } from "next";
 import { ProductCard } from "@/components/ui/ProductCard";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -5,55 +6,14 @@ import { FadeIn, Stagger, StaggerItem } from "@/components/ui/PageTransition";
 import { Button } from "@/components/ui/Button";
 
 export const metadata: Metadata = {
-    title: "SaaS Portfolio | Tao Creative Labs",
+    alternates: { canonical: "/products" },
+    openGraph: { images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Tao Creative Labs" }], title: "Product Portfolio | Tao Creative Labs", description: "Explore products from Tao Creative Labs. Find official product websites and review current capabilities, availability and terms.", url: "/products" },
+    twitter: { card: "summary_large_image", title: "Product Portfolio | Tao Creative Labs", description: "Explore products from Tao Creative Labs. Find official product websites and review current capabilities, availability and terms.", images: ["/opengraph-image"] },
+    title: "Product Portfolio",
     description:
-        "Premium AI SaaS applications by Tao Creative Labs — from social media automation platforms to virtual try-on tools to creative storytelling ecosystems.",
+        "Explore products from Tao Creative Labs. Find official product websites and review current capabilities, availability and terms.",
 };
 
-const products = [
-    {
-        name: "Agentic Media",
-        description:
-            "AI-powered UGC video creation and social media automation platform designed for scaling digital marketing campaigns and organic growth.",
-        href: "https://www.agenticmedia.app/",
-        icon: "/project-icons/agentic-media.png",
-    },
-    {
-        name: "ReelChef",
-        description:
-            "AI cooking assistant that converts social media food videos into structured recipes and meal plans. Supports multi-platform import, nutritional analysis, and weekly meal planning.",
-        href: "https://www.reelchef.app/",
-        icon: "/project-icons/reelchef.jpg",
-    },
-    {
-        name: "Aura",
-        description:
-            "AI virtual try-on and wardrobe assistant that helps users visualize outfits and clothing. Combines weather-aware recommendations with AI-powered body model generation.",
-        href: "https://www.wearaura.app/",
-        icon: "/project-icons/aura.jpg",
-    },
-    {
-        name: "LucidDreamz",
-        description:
-            "AI character roleplay and conversational storytelling platform. Features dynamic character progression, voice synthesis, and multi-modal interaction systems.",
-        href: "https://www.luciddreamz.app/",
-        icon: "/project-icons/luciddreamz.jpg",
-    },
-    {
-        name: "Nōtare",
-        description:
-            "Offline-first private AI notes and local LLM workspace. Run language models entirely on-device for private, secure note-taking and AI-assisted writing.",
-        href: "https://www.notarenotes.com/",
-        icon: "/project-icons/notare.png",
-    },
-    {
-        name: "Fortaify",
-        description:
-            "The infrastructure and parent platform powering Tao Creative Labs applications. Shared authentication, billing, and AI orchestration layer.",
-        href: "https://fortaify.com/",
-        icon: "/project-icons/fortaify.png",
-    },
-];
 
 export default function ProductsPage() {
     return (
@@ -61,9 +21,9 @@ export default function ProductsPage() {
 
             <div className="mx-auto max-w-7xl relative">
                 <FadeIn>
-                    <SectionHeading
-                        title="SaaS Portfolio"
-                        subtitle="A collection of fully managed, premium AI platforms powering creative workflows, content generation, and consumer experiences."
+                    <SectionHeading as="h1"
+                        title="Explore our products"
+                        subtitle="Explore products from Tao Creative Labs. Visit each product site for current capabilities, availability and terms."
                     />
                 </FadeIn>
 

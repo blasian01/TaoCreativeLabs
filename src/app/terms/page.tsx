@@ -4,6 +4,9 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { FadeIn, Stagger, StaggerItem } from "@/components/ui/PageTransition";
 
 export const metadata: Metadata = {
+    alternates: { canonical: "/terms" },
+    openGraph: { images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Tao Creative Labs" }], title: "Terms of Service | Tao Creative Labs", description: "Terms of Service for Tao Creative Labs LLC — the terms and conditions governing use of our website and services.", url: "/terms" },
+    twitter: { card: "summary_large_image", title: "Terms of Service | Tao Creative Labs", description: "Terms of Service for Tao Creative Labs LLC — the terms and conditions governing use of our website and services.", images: ["/opengraph-image"] },
     title: "Terms of Service",
     description:
         "Terms of Service for Tao Creative Labs LLC — the terms and conditions governing use of our website and services.",
@@ -97,7 +100,7 @@ export default function TermsPage() {
         <div className="relative z-[1] section-bg pt-32 pb-24 px-6 lg:px-12">
             <div className="mx-auto max-w-4xl">
                 <FadeIn>
-                    <SectionHeading
+                    <SectionHeading as="h1"
                         title="Terms of Service"
                         subtitle="Last updated: February 12, 2026"
                     />

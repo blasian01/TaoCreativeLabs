@@ -5,6 +5,9 @@ import { Button } from "@/components/ui/Button";
 import { FadeIn, Stagger, StaggerItem } from "@/components/ui/PageTransition";
 
 export const metadata: Metadata = {
+    alternates: { canonical: "/consulting" },
+    openGraph: { images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Tao Creative Labs" }], title: "Consulting | Tao Creative Labs", description: "AI consulting services from Tao Creative Labs — strategy, implementation, and deployment guidance for businesses adopting artificial intelligence.", url: "/consulting" },
+    twitter: { card: "summary_large_image", title: "Consulting | Tao Creative Labs", description: "AI consulting services from Tao Creative Labs — strategy, implementation, and deployment guidance for businesses adopting artificial intelligence.", images: ["/opengraph-image"] },
     title: "Consulting",
     description:
         "AI consulting services from Tao Creative Labs — strategy, implementation, and deployment guidance for businesses adopting artificial intelligence.",
@@ -36,7 +39,7 @@ const phases = [
         step: "04",
         title: "Optimization",
         description:
-            "Post-deployment, we monitor performance, refine outputs, and iterate. AI systems require tuning — we provide ongoing support to ensure sustained accuracy and reliability.",
+            "Post-deployment, we monitor performance, refine outputs, and iterate. AI systems require tuning — we can agree an ongoing review and support plan for the project.",
         color: "text-brand-rose",
     },
 ];
@@ -44,7 +47,7 @@ const phases = [
 const principles = [
     {
         title: "Privacy-first",
-        description: "We design systems that respect data sovereignty. Local deployments, encrypted pipelines, and minimal data retention are defaults, not options.",
+        description: "We assess data processing, retention and local or connected deployment options against the requirements of each project.",
     },
     {
         title: "Practical, not theoretical",
@@ -61,7 +64,7 @@ export default function ConsultingPage() {
         <div className="relative z-[1] section-bg pt-32 pb-24 px-6 lg:px-12">
             <div className="mx-auto max-w-7xl">
                 <FadeIn>
-                    <SectionHeading
+                    <SectionHeading as="h1"
                         title="Consulting"
                         subtitle="Structured AI adoption for teams that need clarity, not hype."
                     />

@@ -18,9 +18,9 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-    metadataBase: new URL("https://taocreativelabs.com"),
+    metadataBase: new URL("https://www.taocreativelabs.com"),
     title: {
-        default: "Tao Creative Labs — Applied Artificial Intelligence",
+        default: "Tao Creative Labs | Apps and AI Services",
         template: "%s | Tao Creative Labs",
     },
     description:
@@ -34,19 +34,19 @@ export const metadata: Metadata = {
         "machine learning",
         "Tao Creative Labs",
     ],
-    authors: [{ name: "Tao Creative Labs LLC" }],
-    creator: "Tao Creative Labs LLC",
+    authors: [{ name: "Tao Creative Labs" }],
+    creator: "Tao Creative Labs",
     openGraph: {
         type: "website",
         locale: "en_US",
-        url: "https://taocreativelabs.com",
+        url: "https://www.taocreativelabs.com",
         siteName: "Tao Creative Labs",
-        title: "Tao Creative Labs — Applied Artificial Intelligence",
+        title: "Tao Creative Labs | Apps and AI Services",
         description:
             "We design and deploy intelligent software for people and businesses.",
         images: [
             {
-                url: "/og-image.png",
+                url: "/opengraph-image",
                 width: 1200,
                 height: 630,
                 alt: "Tao Creative Labs",
@@ -55,10 +55,10 @@ export const metadata: Metadata = {
     },
     twitter: {
         card: "summary_large_image",
-        title: "Tao Creative Labs — Applied Artificial Intelligence",
+        title: "Tao Creative Labs | Apps and AI Services",
         description:
             "We design and deploy intelligent software for people and businesses.",
-        images: ["/og-image.png"],
+        images: ["/opengraph-image"],
     },
     robots: {
         index: true,
@@ -77,130 +77,22 @@ const jsonLd = [
     {
         "@context": "https://schema.org",
         "@type": "Organization",
-        name: "Tao Creative Labs LLC",
-        url: "https://taocreativelabs.com",
-        logo: "https://taocreativelabs.com/logo.png",
-        description:
-            "Applied artificial intelligence company and venture studio building consumer AI applications and business automation systems.",
-        sameAs: [],
-        contactPoint: {
-            "@type": "ContactPoint",
-            contactType: "customer service",
-            email: "hello@taocreativelabs.com",
-            url: "https://taocreativelabs.com/contact",
-        },
-        knowsAbout: [
-            "Artificial Intelligence",
-            "Machine Learning",
-            "AI Automation",
-            "Natural Language Processing",
-            "Computer Vision",
-            "Local LLM Deployment",
-            "Retrieval-Augmented Generation",
-        ],
+        "@id": "https://www.taocreativelabs.com/#organization",
+        "name": "Tao Creative Labs",
+        "url": "https://www.taocreativelabs.com/",
+        "logo": "https://www.taocreativelabs.com/logo.png",
+        "description": "Software studio developing consumer applications and offering AI consulting and implementation services."
     },
     {
         "@context": "https://schema.org",
-        "@type": "ProfessionalService",
-        name: "Tao Creative Labs AI Consulting",
-        provider: {
-            "@type": "Organization",
-            name: "Tao Creative Labs LLC",
-        },
-        url: "https://taocreativelabs.com/consulting",
-        description:
-            "AI consulting services including strategy, implementation roadmaps, workflow automation, and custom model deployments for businesses.",
-        serviceType: "AI Consulting",
-        areaServed: "Worldwide",
-        hasOfferCatalog: {
-            "@type": "OfferCatalog",
-            name: "AI Services",
-            itemListElement: [
-                {
-                    "@type": "Offer",
-                    itemOffered: {
-                        "@type": "Service",
-                        name: "AI Workflow Automation",
-                        description: "Automate business processes with intelligent agents, integrations, and internal copilots.",
-                    },
-                },
-                {
-                    "@type": "Offer",
-                    itemOffered: {
-                        "@type": "Service",
-                        name: "Enterprise Knowledge Bases",
-                        description: "AI-powered RAG systems with semantic search over internal documents and databases.",
-                    },
-                },
-                {
-                    "@type": "Offer",
-                    itemOffered: {
-                        "@type": "Service",
-                        name: "Private AI Deployments",
-                        description: "On-premise AI model deployment with complete data sovereignty and air-gapped operation.",
-                    },
-                },
-            ],
-        },
-    },
-    {
-        "@context": "https://schema.org",
-        "@type": "ItemList",
-        name: "Tao Creative Labs Products",
-        description: "Consumer AI applications built and operated by Tao Creative Labs.",
-        url: "https://taocreativelabs.com/products",
-        numberOfItems: 5,
-        itemListElement: [
-            {
-                "@type": "ListItem",
-                position: 1,
-                item: {
-                    "@type": "SoftwareApplication",
-                    name: "ReelChef",
-                    url: "https://www.reelchef.app/",
-                    applicationCategory: "LifestyleApplication",
-                    description: "AI cooking assistant that converts social media food videos into structured recipes and meal plans.",
-                    operatingSystem: "iOS, Web",
-                },
-            },
-            {
-                "@type": "ListItem",
-                position: 2,
-                item: {
-                    "@type": "SoftwareApplication",
-                    name: "Aura",
-                    url: "https://www.wearaura.app/",
-                    applicationCategory: "LifestyleApplication",
-                    description: "AI virtual try-on and wardrobe assistant that helps users visualize outfits and clothing.",
-                    operatingSystem: "iOS",
-                },
-            },
-            {
-                "@type": "ListItem",
-                position: 3,
-                item: {
-                    "@type": "SoftwareApplication",
-                    name: "LucidDreamz",
-                    url: "https://www.luciddreamz.app/",
-                    applicationCategory: "EntertainmentApplication",
-                    description: "AI character roleplay and conversational storytelling platform.",
-                    operatingSystem: "Web",
-                },
-            },
-            {
-                "@type": "ListItem",
-                position: 4,
-                item: {
-                    "@type": "SoftwareApplication",
-                    name: "Nōtare",
-                    url: "https://www.notarenotes.com/",
-                    applicationCategory: "BusinessApplication",
-                    description: "Offline-first private AI notes and local LLM workspace.",
-                    operatingSystem: "iOS",
-                },
-            },
-        ],
-    },
+        "@type": "WebSite",
+        "@id": "https://www.taocreativelabs.com/#website",
+        "name": "Tao Creative Labs",
+        "url": "https://www.taocreativelabs.com/",
+        "publisher": {
+            "@id": "https://www.taocreativelabs.com/#organization"
+        }
+    }
 ];
 
 export default function RootLayout({
