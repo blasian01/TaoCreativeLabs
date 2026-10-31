@@ -233,7 +233,7 @@ export default function HomePage() {
                         </p>
                     </FadeIn>
                     <FadeIn delay={0.3}>
-                        <div className="mt-12 grid grid-cols-3 gap-8">
+                        <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-3 sm:gap-8">
                             <div>
                                 <p className="font-grotesk text-2xl font-light gradient-text">Apps</p>
                                 <p className="mt-1 text-[12px] font-light uppercase tracking-[0.15em] text-ink-muted">
