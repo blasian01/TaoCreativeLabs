@@ -39,7 +39,7 @@ const phases = [
         step: "04",
         title: "Optimization",
         description:
-            "Post-deployment, we monitor performance, refine outputs, and iterate. AI systems require tuning — we provide ongoing support to ensure sustained accuracy and reliability.",
+            "Post-deployment, we monitor performance, refine outputs, and iterate. AI systems require tuning — we can agree an ongoing review and support plan for the project.",
         color: "text-brand-rose",
     },
 ];
@@ -47,7 +47,7 @@ const phases = [
 const principles = [
     {
         title: "Privacy-first",
-        description: "We design systems that respect data sovereignty. Local deployments, encrypted pipelines, and minimal data retention are defaults, not options.",
+        description: "We assess data processing, retention and local or connected deployment options against the requirements of each project.",
     },
     {
         title: "Practical, not theoretical",

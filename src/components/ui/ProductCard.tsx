@@ -14,12 +14,13 @@ const productColors: Record<string, string> = {
 interface ProductCardProps {
     name: string;
     description: string;
-    href: string;
+    href?: string;
+    availability?: string;
     icon?: string;
     image?: string;
 }
 
-export function ProductCard({ name, description, href, icon, image }: ProductCardProps) {
+export function ProductCard({ name, description, href, icon, image, availability }: ProductCardProps) {
     const gradient = productColors[name] || "from-brand-violet to-brand-cyan";
 
     return (
@@ -30,7 +31,7 @@ export function ProductCard({ name, description, href, icon, image }: ProductCar
                         <div className="relative h-12 w-12 flex-shrink-0 overflow-hidden rounded-xl border border-white/80 bg-white shadow-[0_4px_14px_rgba(0,0,0,0.08)]">
                             <Image
                                 src={icon}
-                                alt={`${name} app icon`}
+                                alt={`${name} icon`}
                                 fill
                                 sizes="48px"
                                 className="object-cover"
@@ -63,7 +64,7 @@ export function ProductCard({ name, description, href, icon, image }: ProductCar
                 </p>
             </div>
             <div className="mt-6 pt-4 border-t border-surface-200">
-                <a
+                {href ? <a
                     href={href}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -83,7 +84,7 @@ export function ProductCard({ name, description, href, icon, image }: ProductCar
                             d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"
                         />
                     </svg>
-                </a>
+                </a> : <p className="text-[13px] text-ink-muted">{availability || "Availability under review"}</p>}
             </div>
         </GlassCard>
     );

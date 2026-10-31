@@ -45,8 +45,8 @@ const solutions = [
     {
         title: "Private AI Deployments",
         description:
-            "Run AI models entirely within your infrastructure. We deploy and optimize local LLMs for organizations that require complete data sovereignty and air-gapped operation.",
-        capabilities: ["On-premise deployment", "Model optimization", "Air-gapped operation", "Data sovereignty"],
+            "Assess local and connected deployment options against the requirements of the specific project. Review data processing, infrastructure, model readiness and operational constraints before implementation.",
+        capabilities: ["Deployment assessment", "Model evaluation", "Connectivity requirements", "Data handling review"],
         accent: "from-brand-rose to-pink-400",
     },
     {

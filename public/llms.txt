@@ -1,47 +1,31 @@
 # Tao Creative Labs
 
-> Tao Creative Labs is an applied artificial intelligence company and venture studio. We build consumer AI applications, automation systems, and provide AI consulting for businesses.
+Software studio developing consumer applications and offering AI consulting and implementation services.
 
-## About
+## Product portfolio
 
-Tao Creative Labs LLC is an AI venture studio focused on practical, applied artificial intelligence. We design, build, and operate intelligent software — from consumer applications to enterprise automation systems. Founded on the principle that AI should be practical, private, and accessible.
+Visit each product site for current capabilities, availability and terms. Products do not imply a shared login or billing system.
 
-## Contact
+- [Agentic Media](https://www.agenticmedia.app/): Explore AI-generated creator-style video workflows on the web. Review current product capabilities and generation terms.
+- [ReelChef](https://www.reelchef.app/): Turn supported public cooking-video links into recipes you can review. Check ingredients, quantities and steps against the original before cooking.
+- [Aura](https://www.wearaura.app/): Explore AI-generated clothing previews for styling ideas. Previews do not guarantee sizing or fit.
+- LucidDreamz: Product information and availability are being reviewed.
+- [Nōtare](https://www.notarenotes.com/): Record meetings, review transcripts and check summaries. Processing depends on the selected mode, device and model readiness.
+- [Glyph by Fortaify](https://www.fortaify.com/): Glyph is an AI workspace from Fortaify with local model workflows and optional connected services. Review current downloads and setup information.
 
-- Website: https://www.taocreativelabs.com
-- Email: hello@taocreativelabs.com
-- Contact form: https://www.taocreativelabs.com/contact
+## AI services
 
-## Products
+Consulting covers discovery, architecture, implementation and review. Assess local and connected deployment options, data processing, infrastructure and model readiness for the specific project. These offerings are separate from shipped app capabilities.
 
-- [ReelChef](https://www.reelchef.app/): AI cooking assistant that converts social media food videos into structured recipes and meal plans.
-- [Aura](https://www.wearaura.app/): AI virtual try-on and wardrobe assistant that helps users visualize outfits and clothing.
-- [LucidDreamz](https://www.luciddreamz.app/): AI character roleplay and conversational storytelling platform.
-- [Nōtare](https://www.notarenotes.com/): Offline-first private AI notes and local LLM workspace.
-- [Glyph by Fortaify](https://www.fortaify.com/): Glyph is an AI workspace from Fortaify with local model workflows and optional connected services.
+## Public pages
 
-## Services
+- /: https://www.taocreativelabs.com
+- /products: https://www.taocreativelabs.com/products
+- /solutions: https://www.taocreativelabs.com/solutions
+- /consulting: https://www.taocreativelabs.com/consulting
+- /about: https://www.taocreativelabs.com/about
+- /contact: https://www.taocreativelabs.com/contact
+- /privacy: https://www.taocreativelabs.com/privacy
+- /terms: https://www.taocreativelabs.com/terms
 
-- AI Automation: Workflow automation, agents, integrations, and internal copilots.
-- AI Consulting: Strategy, implementation roadmaps, and custom model deployments.
-- AI Products: Consumer AI applications designed and operated for everyday users.
-
-## Business Solutions
-
-- AI workflow automation
-- Document processing and extraction
-- Enterprise knowledge bases
-- Custom chatbots and conversational AI
-- Local private AI deployments
-- Custom internal copilots
-
-## Pages
-
-- Home: https://www.taocreativelabs.com
-- Products: https://www.taocreativelabs.com/products
-- Solutions: https://www.taocreativelabs.com/solutions
-- Consulting: https://www.taocreativelabs.com/consulting
-- About: https://www.taocreativelabs.com/about
-- Contact: https://www.taocreativelabs.com/contact
-- Privacy Policy: https://www.taocreativelabs.com/privacy
-- Terms of Service: https://www.taocreativelabs.com/terms
+Private admin/authentication and API routes are not public product or search content. This optional document is not an access-control mechanism or a promise of search indexing.
