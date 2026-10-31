@@ -8,6 +8,6 @@ export default function robots(): MetadataRoute.Robots {
                 allow: "/",
             },
         ],
-        sitemap: "https://taocreativelabs.com/sitemap.xml",
+        sitemap: "https://www.taocreativelabs.com/sitemap.xml",
     };
 }

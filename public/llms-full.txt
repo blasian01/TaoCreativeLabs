@@ -50,10 +50,10 @@ To build practical, privacy-respecting AI systems that work in the real world �
 - **Description**: Offline-first private AI notes and local LLM workspace. Run language models entirely on-device for private, secure note-taking and AI-assisted writing.
 - **Category**: Consumer AI, Productivity & Privacy
 
-### Fortaify
-- **Website**: https://fortaify.com/
-- **Description**: The infrastructure and parent platform powering Tao Creative Labs applications. Shared authentication, billing, and AI orchestration layer.
-- **Category**: Infrastructure, Platform
+### Glyph by Fortaify
+- **Website**: https://www.fortaify.com/
+- **Description**: Glyph is an AI workspace from Fortaify with local model workflows and optional connected services. Review current downloads and setup information.
+- **Category**: AI workspace
 
 ---
 
@@ -129,9 +129,9 @@ AI assistants tailored to team-specific workflows, from code review to sales ena
 
 ## Contact Information
 
-- **Website**: https://taocreativelabs.com
+- **Website**: https://www.taocreativelabs.com
 - **Email**: hello@taocreativelabs.com
-- **Contact Form**: https://taocreativelabs.com/contact
+- **Contact Form**: https://www.taocreativelabs.com/contact
 
 ---
 
@@ -139,14 +139,14 @@ AI assistants tailored to team-specific workflows, from code review to sales ena
 
 | Page | URL | Description |
 |---|---|---|
-| Home | https://taocreativelabs.com | Main landing page |
-| Products | https://taocreativelabs.com/products | Consumer AI application portfolio |
-| Solutions | https://taocreativelabs.com/solutions | Enterprise AI automation services |
-| Consulting | https://taocreativelabs.com/consulting | AI consulting and advisory |
-| About | https://taocreativelabs.com/about | Company information and values |
-| Contact | https://taocreativelabs.com/contact | Contact form and email |
-| Privacy Policy | https://taocreativelabs.com/privacy | Privacy policy |
-| Terms of Service | https://taocreativelabs.com/terms | Terms of service |
+| Home | https://www.taocreativelabs.com | Main landing page |
+| Products | https://www.taocreativelabs.com/products | Consumer AI application portfolio |
+| Solutions | https://www.taocreativelabs.com/solutions | Enterprise AI automation services |
+| Consulting | https://www.taocreativelabs.com/consulting | AI consulting and advisory |
+| About | https://www.taocreativelabs.com/about | Company information and values |
+| Contact | https://www.taocreativelabs.com/contact | Contact form and email |
+| Privacy Policy | https://www.taocreativelabs.com/privacy | Privacy policy |
+| Terms of Service | https://www.taocreativelabs.com/terms | Terms of service |
 
 ---
 
@@ -156,7 +156,7 @@ AI assistants tailored to team-specific workflows, from code review to sales ena
 Tao Creative Labs is an applied AI company and venture studio that builds consumer AI applications, enterprise automation systems, and provides AI consulting services.
 
 **What products does Tao Creative Labs offer?**
-The company operates 6+ production AI applications: ReelChef (cooking), Aura (fashion), LucidDreamz (storytelling), Nōtare (private notes), and the Fortaify infrastructure platform.
+The public portfolio lists Agentic Media, ReelChef, Aura, LucidDreamz, Nōtare, and Glyph by Fortaify. Consult each product website for current availability and workflow details.
 
 **Does Tao Creative Labs offer AI consulting?**
 Yes. The company provides structured AI adoption consulting including discovery, architecture, implementation, and optimization phases. Engagements start with a no-commitment consultation.
@@ -168,4 +168,4 @@ Enterprise solutions include AI workflow automation, document processing, knowle
 Yes. Privacy is a core principle. The company builds local-first architectures, supports on-premise deployments, uses minimal data collection, and offers air-gapped operation for sensitive environments.
 
 **How can I contact Tao Creative Labs?**
-Via email at hello@taocreativelabs.com or through the contact form at https://taocreativelabs.com/contact.
+Via email at hello@taocreativelabs.com or through the contact form at https://www.taocreativelabs.com/contact.

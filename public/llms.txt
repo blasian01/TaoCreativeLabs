@@ -8,9 +8,9 @@ Tao Creative Labs LLC is an AI venture studio focused on practical, applied arti
 
 ## Contact
 
-- Website: https://taocreativelabs.com
+- Website: https://www.taocreativelabs.com
 - Email: hello@taocreativelabs.com
-- Contact form: https://taocreativelabs.com/contact
+- Contact form: https://www.taocreativelabs.com/contact
 
 ## Products
 
@@ -18,7 +18,7 @@ Tao Creative Labs LLC is an AI venture studio focused on practical, applied arti
 - [Aura](https://www.wearaura.app/): AI virtual try-on and wardrobe assistant that helps users visualize outfits and clothing.
 - [LucidDreamz](https://www.luciddreamz.app/): AI character roleplay and conversational storytelling platform.
 - [Nōtare](https://www.notarenotes.com/): Offline-first private AI notes and local LLM workspace.
-- [Fortaify](https://fortaify.com/): The infrastructure and parent platform powering Tao Creative Labs applications.
+- [Glyph by Fortaify](https://www.fortaify.com/): Glyph is an AI workspace from Fortaify with local model workflows and optional connected services.
 
 ## Services
 
@@ -37,11 +37,11 @@ Tao Creative Labs LLC is an AI venture studio focused on practical, applied arti
 
 ## Pages
 
-- Home: https://taocreativelabs.com
-- Products: https://taocreativelabs.com/products
-- Solutions: https://taocreativelabs.com/solutions
-- Consulting: https://taocreativelabs.com/consulting
-- About: https://taocreativelabs.com/about
-- Contact: https://taocreativelabs.com/contact
-- Privacy Policy: https://taocreativelabs.com/privacy
-- Terms of Service: https://taocreativelabs.com/terms
+- Home: https://www.taocreativelabs.com
+- Products: https://www.taocreativelabs.com/products
+- Solutions: https://www.taocreativelabs.com/solutions
+- Consulting: https://www.taocreativelabs.com/consulting
+- About: https://www.taocreativelabs.com/about
+- Contact: https://www.taocreativelabs.com/contact
+- Privacy Policy: https://www.taocreativelabs.com/privacy
+- Terms of Service: https://www.taocreativelabs.com/terms

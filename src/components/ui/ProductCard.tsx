@@ -8,6 +8,7 @@ const productColors: Record<string, string> = {
     LucidDreamz: "from-purple-500 to-pink-400",
     Nōtare: "from-emerald-400 to-teal-500",
     Fortaify: "from-brand-cyan to-blue-500",
+    "Glyph by Fortaify": "from-brand-cyan to-blue-500",
 };
 
 interface ProductCardProps {
@@ -68,7 +69,7 @@ export function ProductCard({ name, description, href, icon, image }: ProductCar
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 text-[13px] font-light text-brand-violet transition-colors hover:text-brand-cyan"
                 >
-                    Visit product
+                    Visit {name}
                     <svg
                         className="h-3 w-3"
                         fill="none"

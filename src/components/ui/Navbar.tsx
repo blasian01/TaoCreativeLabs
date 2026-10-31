@@ -62,8 +62,10 @@ export function Navbar() {
                         {/* Mobile hamburger */}
                         <button
                             onClick={() => setIsMobileOpen(!isMobileOpen)}
-                            className="flex flex-col gap-[5px] md:hidden"
+                            className="flex h-11 w-11 flex-col items-center justify-center gap-[5px] md:hidden"
                             aria-label="Toggle menu"
+                            aria-expanded={isMobileOpen}
+                            aria-controls={isMobileOpen ? "mobile-navigation" : undefined}
                         >
                             <motion.span
                                 animate={isMobileOpen ? { rotate: 45, y: 7 } : { rotate: 0, y: 0 }}
@@ -86,6 +88,7 @@ export function Navbar() {
             <AnimatePresence>
                 {isMobileOpen && (
                     <motion.div
+                        id="mobile-navigation"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}

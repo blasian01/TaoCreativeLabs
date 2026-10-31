@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 
 import { Button } from "@/components/ui/Button";
 import { GlassCard } from "@/components/ui/GlassCard";
@@ -5,6 +6,8 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ProductCard } from "@/components/ui/ProductCard";
 import { ContactForm } from "@/components/ui/ContactForm";
 import { FadeIn, Stagger, StaggerItem } from "@/components/ui/PageTransition";
+
+export const metadata: Metadata = { alternates: { canonical: "/" } };
 
 const services = [
     {
@@ -83,10 +86,10 @@ const products = [
         icon: "/project-icons/notare.png",
     },
     {
-        name: "Fortaify",
+        name: "Glyph by Fortaify",
         description:
-            "The infrastructure and parent platform powering Tao Creative Labs applications.",
-        href: "https://fortaify.com/",
+            "Glyph is an AI workspace from Fortaify with local model workflows and optional connected services.",
+        href: "https://www.fortaify.com/",
         icon: "/project-icons/fortaify.png",
     },
 ];

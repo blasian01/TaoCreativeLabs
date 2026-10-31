@@ -5,6 +5,9 @@ import { Button } from "@/components/ui/Button";
 import { FadeIn, Stagger, StaggerItem } from "@/components/ui/PageTransition";
 
 export const metadata: Metadata = {
+    alternates: { canonical: "/about" },
+    openGraph: { images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Tao Creative Labs" }], title: "About | Tao Creative Labs", description: "Tao Creative Labs is an AI venture studio focused on practical applied AI, privacy-respecting systems, and production-grade intelligent software.", url: "/about" },
+    twitter: { card: "summary_large_image", title: "About | Tao Creative Labs", description: "Tao Creative Labs is an AI venture studio focused on practical applied AI, privacy-respecting systems, and production-grade intelligent software.", images: ["/opengraph-image"] },
     title: "About",
     description:
         "Tao Creative Labs is an AI venture studio focused on practical applied AI, privacy-respecting systems, and production-grade intelligent software.",
@@ -43,7 +46,7 @@ export default function AboutPage() {
 
             <div className="mx-auto max-w-7xl relative">
                 <FadeIn>
-                    <SectionHeading title="About" />
+                    <SectionHeading as="h1" title="About" />
                 </FadeIn>
 
                 {/* Mission */}

@@ -5,6 +5,9 @@ import { Button } from "@/components/ui/Button";
 import { FadeIn, Stagger, StaggerItem } from "@/components/ui/PageTransition";
 
 export const metadata: Metadata = {
+    alternates: { canonical: "/consulting" },
+    openGraph: { images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Tao Creative Labs" }], title: "Consulting | Tao Creative Labs", description: "AI consulting services from Tao Creative Labs — strategy, implementation, and deployment guidance for businesses adopting artificial intelligence.", url: "/consulting" },
+    twitter: { card: "summary_large_image", title: "Consulting | Tao Creative Labs", description: "AI consulting services from Tao Creative Labs — strategy, implementation, and deployment guidance for businesses adopting artificial intelligence.", images: ["/opengraph-image"] },
     title: "Consulting",
     description:
         "AI consulting services from Tao Creative Labs — strategy, implementation, and deployment guidance for businesses adopting artificial intelligence.",
@@ -61,7 +64,7 @@ export default function ConsultingPage() {
         <div className="relative z-[1] section-bg pt-32 pb-24 px-6 lg:px-12">
             <div className="mx-auto max-w-7xl">
                 <FadeIn>
-                    <SectionHeading
+                    <SectionHeading as="h1"
                         title="Consulting"
                         subtitle="Structured AI adoption for teams that need clarity, not hype."
                     />

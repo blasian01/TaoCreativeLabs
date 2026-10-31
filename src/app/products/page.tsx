@@ -5,7 +5,10 @@ import { FadeIn, Stagger, StaggerItem } from "@/components/ui/PageTransition";
 import { Button } from "@/components/ui/Button";
 
 export const metadata: Metadata = {
-    title: "SaaS Portfolio | Tao Creative Labs",
+    alternates: { canonical: "/products" },
+    openGraph: { images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Tao Creative Labs" }], title: "SaaS Portfolio | Tao Creative Labs", description: "Premium AI SaaS applications by Tao Creative Labs — from social media automation platforms to virtual try-on tools to creative storytelling ecosystems.", url: "/products" },
+    twitter: { card: "summary_large_image", title: "SaaS Portfolio | Tao Creative Labs", description: "Premium AI SaaS applications by Tao Creative Labs — from social media automation platforms to virtual try-on tools to creative storytelling ecosystems.", images: ["/opengraph-image"] },
+    title: "SaaS Portfolio",
     description:
         "Premium AI SaaS applications by Tao Creative Labs — from social media automation platforms to virtual try-on tools to creative storytelling ecosystems.",
 };
@@ -47,10 +50,10 @@ const products = [
         icon: "/project-icons/notare.png",
     },
     {
-        name: "Fortaify",
+        name: "Glyph by Fortaify",
         description:
-            "The infrastructure and parent platform powering Tao Creative Labs applications. Shared authentication, billing, and AI orchestration layer.",
-        href: "https://fortaify.com/",
+            "Glyph is an AI workspace from Fortaify with local model workflows and optional connected services. Review current downloads and setup information.",
+        href: "https://www.fortaify.com/",
         icon: "/project-icons/fortaify.png",
     },
 ];
@@ -61,7 +64,7 @@ export default function ProductsPage() {
 
             <div className="mx-auto max-w-7xl relative">
                 <FadeIn>
-                    <SectionHeading
+                    <SectionHeading as="h1"
                         title="SaaS Portfolio"
                         subtitle="A collection of fully managed, premium AI platforms powering creative workflows, content generation, and consumer experiences."
                     />
