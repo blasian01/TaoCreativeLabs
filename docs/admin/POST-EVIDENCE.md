@@ -11,7 +11,7 @@ Canonical `organic_social_publications` / `social_publication_records` and `mark
 - Final actual published image file(s), MIME and alt text, provenance/reference tying them to this exact post. A single preview image is supported per publication in this initial implementation. A photo sequence needs a contact sheet or selected representative preview explicitly identified; this does not certify that every frame is shown. Supply a dashboard preview PNG/JPEG/WebP no larger than 240,000 bytes. Do not supply credentials, internal paths in API data, SVG/HTML or arbitrary remote image URLs. The private handoff may locate the file for the authorized adapter; that path is not published.
 - Each available metric separately: exact metric name/value/unit; post permalink; original collection time/source/collector; reporting period start+end together or both unknown; retrieval time if separately known. No measurement means no fabricated row; the UI says unknown/no measurements. Measured 0 remains 0. Do not invent mature 24h/72h windows.
 
-X remains held until Jarvis resolves the earlier pause. Prepared/submitted/verified-live/dashboard-readback are distinct. This integration does not authorize social publication.
+Bronson has permitted X only for these five test posts, subject to access and platform limits. The recurring X pause remains; each publisher stays preparation-only until Jarvis individually releases it. Prepared/submitted/verified-live/dashboard-readback are distinct. This integration does not authorize social publication.
 
 ## Existing private ingestion (no new writer grant)
 
