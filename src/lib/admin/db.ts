@@ -8,7 +8,7 @@ function sqlClient() { if (!process.env.DATABASE_URL) throw new Error('Admin per
 export async function readSnapshot(): Promise<MarketingSnapshot> {
   const sql=sqlClient();
   const [items,observations,latest] = await sql.transaction([
-    sql`SELECT kind,payload FROM tao_admin_items ORDER BY kind,item_key`,
+    sql`SELECT kind,payload FROM tao_admin_items WHERE kind IN ('agents','accounts','publications','experiments','business') ORDER BY kind,item_key`,
     sql`SELECT payload FROM tao_admin_observations ORDER BY observed_at DESC LIMIT 10001`,
     sql`SELECT max(received_at) AS last_sync FROM tao_admin_batches`,
   ],{readOnly:true,isolationLevel:'RepeatableRead'});
@@ -18,6 +18,7 @@ export async function readSnapshot(): Promise<MarketingSnapshot> {
 export async function ingestBatch(batch: Ingestion) {
   const sql=sqlClient();
   const items = [
+    ...(batch.mediaAssets??[]).map(p=>({kind:'marketing_media',key:p.ref,payload:p})),
     ...batch.agents.map(p=>({kind:'agents',key:p.id,payload:p})),
     ...batch.accounts.map(p=>({kind:'accounts',key:`${p.app}:${p.platform}`,payload:p})),
     ...batch.publications.map(p=>({kind:'publications',key:publicationKey(p),payload:p})),
@@ -34,7 +35,7 @@ export async function ingestBatch(batch: Ingestion) {
   ), written_items AS (
     INSERT INTO tao_admin_items(kind,item_key,payload)
       SELECT x->>'kind',x->>'key',x->'payload' FROM jsonb_array_elements(${JSON.stringify(items)}::jsonb) x CROSS JOIN accepted
-      ON CONFLICT(kind,item_key) DO UPDATE SET payload=EXCLUDED.payload,updated_at=now()
+      ON CONFLICT(kind,item_key) DO UPDATE SET payload=CASE WHEN tao_admin_items.kind='marketing_media' AND tao_admin_items.payload<>EXCLUDED.payload THEN NULL ELSE EXCLUDED.payload END,updated_at=now()
       WHERE COALESCE((EXCLUDED.payload->>'observedAt')::timestamptz,(EXCLUDED.payload->>'verifiedAt')::timestamptz,'-infinity'::timestamptz)
         >= COALESCE((tao_admin_items.payload->>'observedAt')::timestamptz,(tao_admin_items.payload->>'verifiedAt')::timestamptz,'-infinity'::timestamptz)
     RETURNING item_key
@@ -42,4 +43,10 @@ export async function ingestBatch(batch: Ingestion) {
     INSERT INTO tao_admin_observations(entity_url,metric,observed_at,payload)
       SELECT x->>'entityUrl',x->>'metric',(x->>'observedAt')::timestamptz,x FROM jsonb_array_elements(${JSON.stringify(observations)}::jsonb) x CROSS JOIN accepted
       ON CONFLICT(entity_url,metric,observed_at) DO UPDATE SET payload=CASE WHEN tao_admin_observations.payload=EXCLUDED.payload THEN tao_admin_observations.payload ELSE NULL END`;
+}
+
+export async function readMedia(ref:string) {
+ const sql=sqlClient();
+ const rows=await sql`SELECT payload FROM tao_admin_items WHERE kind='marketing_media' AND item_key=${ref}`;
+ return rows[0]?.payload??null;
 }
