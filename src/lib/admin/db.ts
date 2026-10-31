@@ -25,14 +25,21 @@ export async function ingestBatch(batch: Ingestion) {
   ];
   const observations=batch.observations.map(p=>({...p,entityUrl:canonicalUrl(p.entityUrl)}));
   const digest=payloadDigest(batch);
-  await sql.transaction([
-    sql`INSERT INTO tao_admin_batches(batch_id,digest,observed_at) VALUES(${batch.batchId},${digest},${batch.observedAt}) ON CONFLICT(batch_id) DO UPDATE SET digest=CASE WHEN tao_admin_batches.digest=EXCLUDED.digest THEN tao_admin_batches.digest ELSE NULL END`,
-    sql`INSERT INTO tao_admin_items(kind,item_key,payload)
-      SELECT x->>'kind',x->>'key',x->'payload' FROM jsonb_array_elements(${JSON.stringify(items)}::jsonb) x
+  // A matching retry returns no accepted row: every dependent write is a no-op.
+  // A changed body deliberately violates digest NOT NULL and atomically rolls back.
+  await sql`WITH accepted AS (
+    INSERT INTO tao_admin_batches(batch_id,digest,observed_at) VALUES(${batch.batchId},${digest},${batch.observedAt})
+    ON CONFLICT(batch_id) DO UPDATE SET digest=NULL WHERE tao_admin_batches.digest<>EXCLUDED.digest
+    RETURNING batch_id
+  ), written_items AS (
+    INSERT INTO tao_admin_items(kind,item_key,payload)
+      SELECT x->>'kind',x->>'key',x->'payload' FROM jsonb_array_elements(${JSON.stringify(items)}::jsonb) x CROSS JOIN accepted
       ON CONFLICT(kind,item_key) DO UPDATE SET payload=EXCLUDED.payload,updated_at=now()
-      WHERE COALESCE(EXCLUDED.payload->>'observedAt',EXCLUDED.payload->>'verifiedAt','') >= COALESCE(tao_admin_items.payload->>'observedAt',tao_admin_items.payload->>'verifiedAt','')`,
-    sql`INSERT INTO tao_admin_observations(entity_url,metric,observed_at,payload)
-      SELECT x->>'entityUrl',x->>'metric',(x->>'observedAt')::timestamptz,x FROM jsonb_array_elements(${JSON.stringify(observations)}::jsonb) x
-      ON CONFLICT(entity_url,metric,observed_at) DO UPDATE SET payload=CASE WHEN tao_admin_observations.payload=EXCLUDED.payload THEN tao_admin_observations.payload ELSE NULL END`,
-  ],{isolationLevel:'Serializable'});
+      WHERE COALESCE((EXCLUDED.payload->>'observedAt')::timestamptz,(EXCLUDED.payload->>'verifiedAt')::timestamptz,'-infinity'::timestamptz)
+        >= COALESCE((tao_admin_items.payload->>'observedAt')::timestamptz,(tao_admin_items.payload->>'verifiedAt')::timestamptz,'-infinity'::timestamptz)
+    RETURNING item_key
+  )
+    INSERT INTO tao_admin_observations(entity_url,metric,observed_at,payload)
+      SELECT x->>'entityUrl',x->>'metric',(x->>'observedAt')::timestamptz,x FROM jsonb_array_elements(${JSON.stringify(observations)}::jsonb) x CROSS JOIN accepted
+      ON CONFLICT(entity_url,metric,observed_at) DO UPDATE SET payload=CASE WHEN tao_admin_observations.payload=EXCLUDED.payload THEN tao_admin_observations.payload ELSE NULL END`;
 }

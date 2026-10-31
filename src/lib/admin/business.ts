@@ -13,4 +13,4 @@ export async function writeBusiness(snapshot:Snapshot){
  await sqlClient()`INSERT INTO tao_admin_business_snapshots(generated_at,payload) VALUES(${snapshot.generatedAt},${JSON.stringify(snapshot)}::jsonb) ON CONFLICT(generated_at) DO UPDATE SET payload=CASE WHEN tao_admin_business_snapshots.payload=EXCLUDED.payload THEN tao_admin_business_snapshots.payload ELSE NULL END`;
 }
 
-export async function businessVersions():Promise<string[]>{const rows=await sqlClient()`SELECT generated_at FROM tao_admin_business_snapshots ORDER BY generated_at DESC LIMIT 200`;return rows.map(r=>new Date(r.generated_at).toISOString());}
+export async function businessVersions():Promise<string[]>{const rows=await sqlClient()`SELECT payload->>'generatedAt' AS snapshot_id FROM tao_admin_business_snapshots ORDER BY generated_at DESC LIMIT 200`;return rows.map(r=>r.snapshot_id as string);}
