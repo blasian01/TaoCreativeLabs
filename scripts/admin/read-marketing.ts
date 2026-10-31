@@ -1,4 +1,4 @@
-/** Agent-side read-only helper. Inject credentials through the supported secure runner, never CLI arguments/files. */
+/** Agent-side read-only helper. Inject credentials at process startup through approved secure binding, including OpenBot's approved private store. Never secret values in CLI arguments, logs or shared/project files. */
 async function main(){
  const domain=process.env.TAO_MARKETING_AUTH0_DOMAIN,audience=process.env.TAO_MARKETING_AUDIENCE,clientId=process.env.TAO_MARKETING_CLIENT_ID,secret=process.env.TAO_MARKETING_CLIENT_SECRET;
  if(!domain||!/^[a-z0-9.-]+\.auth0\.com$/.test(domain)||!audience||!clientId||!secret)throw new Error('Secure service credential binding required');
