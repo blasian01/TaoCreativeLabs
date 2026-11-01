@@ -44,3 +44,18 @@ test('offline Postgres: images are immutable, retry-safe and excluded from dashb
   assert.equal((await db.query('SELECT * FROM tao_admin_batches')).rows.length,1);
  }finally{await db.close();}
 });
+
+test('offline Postgres: owner import route preserves replay and rolls back changed batch',async()=>{
+ const {handleOwnerIngest}=await import('../../src/lib/admin/handlers');
+ const {ingestionSchema}=await import('../../src/lib/admin/validation');
+ const db=await database();try{
+  const {ingestBatch}=load('src/lib/admin/db.ts',db);
+  const data=ingestionSchema.parse({schemaVersion:1,batchId:'owner_import_fixture_1',observedAt:newer,publications:[post]});
+  const request=(body:unknown)=>new Request('https://example.test/api/admin/import',{method:'POST',headers:{origin:'https://example.test','content-type':'application/json'},body:JSON.stringify(body)});
+  for(let i=0;i<2;i++)assert.equal((await handleOwnerIngest(request(data),'owner',ingestBatch)).status,200);
+  assert.equal((await db.query('SELECT * FROM tao_admin_batches')).rows.length,1);
+  assert.equal((await handleOwnerIngest(request({...data,publications:[{...post,caption:'conflicting'}]}),'owner',ingestBatch)).status,409);
+  assert.equal((await db.query<{payload:any}>("SELECT payload FROM tao_admin_items WHERE kind='publications'")).rows[0].payload.caption,post.caption);
+  assert.equal((await db.query('SELECT * FROM tao_admin_batches')).rows.length,1);
+ }finally{await db.close();}
+});

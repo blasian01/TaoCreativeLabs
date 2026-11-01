@@ -20,6 +20,16 @@ export async function handleRead(state:OwnerState, read:()=>Promise<MarketingSna
 }
 export async function handleIngest(request:Request, expected:string|undefined, write:(data:Ingestion)=>Promise<void>) {
   if(!validIngestToken(request.headers.get('authorization'),expected))return Response.json({error:'Ingestion authorization required'},{status:401,headers:PRIVATE_HEADERS});
+  return ingestValidated(request,write);
+}
+export async function handleOwnerIngest(request:Request,state:OwnerState,write:(data:Ingestion)=>Promise<void>) {
+  if(state!=='owner')return denied(state);
+  const origin=request.headers.get('origin');
+  const site=request.headers.get('sec-fetch-site');
+  if(origin!==new URL(request.url).origin||(site!==null&&site!=='same-origin'))return Response.json({error:'Same-origin owner request required'},{status:403,headers:PRIVATE_HEADERS});
+  return ingestValidated(request,write);
+}
+async function ingestValidated(request:Request,write:(data:Ingestion)=>Promise<void>) {
   let json:unknown;
   try{json=await boundedJson(request);}catch(error){const reason=(error as Error).message;return Response.json({error:reason},{status:reason==='body_limit'?413:reason==='content_type'?415:400,headers:PRIVATE_HEADERS});}
   const parsed=ingestionSchema.safeParse(json);
