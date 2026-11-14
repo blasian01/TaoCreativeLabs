@@ -6,10 +6,8 @@ Software studio developing consumer applications and offering AI consulting and 
 
 Visit each product site for current capabilities, availability and terms. Products do not imply a shared login or billing system.
 
-- [Agentic Media](https://www.agenticmedia.app/): Explore AI-generated creator-style video workflows on the web. Review current product capabilities and generation terms.
 - [ReelChef](https://www.reelchef.app/): Turn supported public cooking-video links into recipes you can review. Check ingredients, quantities and steps against the original before cooking.
 - [Aura](https://www.wearaura.app/): Explore AI-generated clothing previews for styling ideas. Previews do not guarantee sizing or fit.
-- LucidDreamz: Product information and availability are being reviewed.
 - [Nōtare](https://www.notarenotes.com/): Record meetings, review transcripts and check summaries. Processing depends on the selected mode, device and model readiness.
 - [Glyph by Fortaify](https://www.fortaify.com/): Glyph is an AI workspace from Fortaify with local model workflows and optional connected services. Review current downloads and setup information.
 

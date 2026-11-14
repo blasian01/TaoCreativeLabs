@@ -17,5 +17,6 @@ assert '<lastmod>' not in sitemap
 for file in ['public/llms.txt', 'public/llms-full.txt']:
     text = Path(file).read_text()
     assert 'Shared authentication, billing' not in text and 'https://www.luciddreamz.app' not in text
-    assert 'availability are being reviewed' in text and 'Previews do not guarantee sizing or fit.' in text
+    assert 'https://www.agenticmedia.app' not in text
+    assert 'Previews do not guarantee sizing or fit.' in text
 print(json.dumps({'publicPages': len(routes), 'sitemapCanonicalURLs': len(urls), 'claimsAndOptionalText': 'pass'}))

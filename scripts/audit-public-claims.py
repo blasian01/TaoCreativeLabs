@@ -23,9 +23,9 @@ for name in ['index', 'products']:
                       'fully managed, premium AI platforms', 'Shared authentication, billing']:
         if forbidden in text: errors.append('unsupported claim: ' + forbidden)
     for needed in ['Previews do not guarantee sizing or fit.', 'Processing depends on the selected mode',
-                   'LucidDreamz', 'availability are being reviewed', 'Glyph by Fortaify']:
+                   'Glyph by Fortaify']:
         if needed not in text: errors.append('missing qualifier: ' + needed)
-    if any('luciddreamz.app' in url for url in p.links): errors.append('unavailable destination still has launch link')
-    if not any(url == 'https://www.agenticmedia.app/' for url in p.links): errors.append('web product link missing')
+    for retired in ('luciddreamz.app', 'agenticmedia.app'):
+        if any(retired in url for url in p.links): errors.append('retired product still linked: ' + retired)
     results.append({'page': name, 'errors': errors})
 print(json.dumps(results, indent=2)); raise SystemExit(any(r['errors'] for r in results))
