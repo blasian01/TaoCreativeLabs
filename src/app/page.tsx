@@ -127,7 +127,7 @@ export default function HomePage() {
                         />
                     </FadeIn>
 
-                    <Stagger className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                    <Stagger className="mx-auto grid max-w-5xl grid-cols-1 gap-6 sm:grid-cols-2">
                         {products.map((product) => (
                             <StaggerItem key={product.name}>
                                 <ProductCard
