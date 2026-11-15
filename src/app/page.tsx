@@ -14,7 +14,7 @@ const services = [
     {
         title: "Consumer AI SaaS",
         description:
-            "We build, launch, and scale consumer-facing AI applications — from creative storytelling platforms to personal AI utility apps.",
+            "We build, launch, and scale consumer AI apps — ReelChef for recipes from cooking videos, Aura for clothing previews and Nōtare for meeting notes.",
         icon: (
             <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth={1} stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9" />
@@ -24,9 +24,9 @@ const services = [
         bgColor: "bg-brand-violet/10",
     },
     {
-        title: "B2B AI Platforms",
+        title: "AI Workspace",
         description:
-            "Enterprise-grade software solutions powering marketing, content creation, and intelligent workflow automation for modern businesses.",
+            "Glyph by Fortaify brings local model workflows and optional connected services together in one AI workspace.",
         icon: (
             <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth={1} stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -154,7 +154,7 @@ export default function HomePage() {
                     <FadeIn>
                         <SectionHeading
                             title="Our Core Focus"
-                            subtitle="Three pillars of our venture studio — from consumer products to enterprise infrastructure."
+                            subtitle="Three pillars of our studio — consumer apps, an AI workspace and hands-on AI consulting."
                         />
                     </FadeIn>
 
